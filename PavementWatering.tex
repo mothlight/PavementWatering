@@ -1,0 +1,1745 @@
+%% 
+%% Copyright 2007, 2008, 2009 Elsevier Ltd
+%% 
+%% This file is part of the 'Elsarticle Bundle'.
+%% ---------------------------------------------
+%% 
+%% It may be distributed under the conditions of the LaTeX Project Public
+%% License, either version 1.2 of this license or (at your option) any
+%% later version.  The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.2 or later is part of all distributions of LaTeX
+%% version 1999/12/01 or later.
+%% 
+%% The list of all files belonging to the 'Elsarticle Bundle' is
+%% given in the file `manifest.txt'.
+%% 
+%% Template article for Elsevier's document class `elsarticle'
+%% with harvard style bibliographic references
+%% SP 2008/03/01
+
+%\documentclass[preprint,12pt,authoryear]{elsarticle}  %default in the template
+%\documentclass[preprint,10pt,authoryear]{elsarticle}
+
+%% Use the option review to obtain double line spacing
+%% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
+
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout:
+% \documentclass[final,1p,times,authoryear]{elsarticle}
+%% \documentclass[final,1p,times,twocolumn,authoryear]{elsarticle}
+ \documentclass[final,3p,times,authoryear]{elsarticle}
+%% \documentclass[final,3p,times,twocolumn,authoryear]{elsarticle}
+%% \documentclass[final,5p,times,authoryear]{elsarticle}
+%% \documentclass[final,5p,times,twocolumn,authoryear]{elsarticle}
+
+%% For including figures, graphicx.sty has been loaded in
+%% elsarticle.cls. If you prefer to use the old commands
+%% please give \usepackage{epsfig}
+
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amssymb}
+%% The amsthm package provides extended theorem environments
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{color, colortbl}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{tabularx}
+\usepackage[]{algorithm2e}
+\usepackage{soul}
+\usepackage{glossaries}
+\usepackage{subfig}
+\usepackage{scalerel}
+\usepackage{ulem}
+\usepackage{multirow}
+
+%track changes on
+%\newcommand{\add}[1]{\textcolor{blue}{#1}}
+%\newcommand{\remove}[1]{\textcolor{red}{\st{#1}}}
+%track changes off
+\newcommand{\add}[1]{\textcolor{black}{#1}}
+\newcommand{\remove}[1]{\textcolor{red}{\st{}}}
+
+
+\definecolor{light-gray}{gray}{0.9}
+
+
+\newcommand{\beginsupplement}{%
+        \setcounter{table}{0}
+        \renewcommand{\thetable}{S\arabic{table}}%
+        \setcounter{figure}{0}
+        \renewcommand{\thefigure}{S\arabic{figure}}%
+     }
+
+
+\DeclareRobustCommand{\hlgreen}[1]{{\sethlcolor{green}\hl{#1}}}
+
+\journal{Building and Environment}
+\makeglossaries
+
+
+\begin{document}
+
+
+\title{Pavement watering as an urban heat mitigation technique in Melbourne, Australia}
+
+\author[monash]{Ellie Traill}
+\author[melb]{Kerry~A.~Nice\corref{cor1}}
+\cortext[cor1]{Principal corresponding author}
+\ead{kerry.nice@unimelb.edu.au}
+
+\author[monash]{Nigel Tapper}
+\author[monash]{Julie Arblaster}
+
+\address[melb]{Transport, Health, and Urban Design Research Lab, Faculty of Architecture, Building, and Planning, University of Melbourne, VIC, Australia.}
+\address[monash]{School of Earth, Atmosphere and Environment, Monash University, Clayton, VIC 3800, Australia.}
+
+
+
+
+\begin{abstract}
+
+Climate change, rapid urbanisation, and ageing populations are reinforcing the need for urban heat mitigation techniques. Pavement watering is one such technique, where evaporative cooling is induced through wetting urban surfaces. The aim of this research is to assess the potential cooling benefits of pavement watering in Melbourne, Australia. To do this, a 10 $\times$ 10 m section of a car park was watered, and experiments were conducted at midday, the afternoon, and the evening across three days. Pavement watering was found to induce a mean cooling of up to 0.6$^{\circ}$C in air temperature and 2$^{\circ}$C in \gls{utci} at 1.5m. Benefits were related to prevailing conditions, with lower wind speeds associated with greater cooling. Surface temperature was also found to decrease by up to 9.0$^{\circ}$C, and the surface energy balance of the watered carpark was characteristic of a highly evaporative surface. However, there were limitations of the experiments; notably, the assumptions made to correct observations increased uncertainty, and the small scale of the experiment likely limited the observed cooling benefits. Despite this, pavement watering was shown to reduce air temperature and surface temperature, as well as improve thermal comfort, and thus may potentially be used in emergencies to provide cooling in Melbourne.
+
+\end{abstract}
+
+\begin{keyword}
+Urban climate\sep
+urban heat island\sep 
+heat mitigation\sep 
+pavement watering\sep 
+thermal comfort
+\end{keyword}
+
+
+
+\maketitle
+
+\section{Introduction}\label{sec:introduction}
+
+Urban areas are especially vulnerable to heat. They are warmer than their rural surroundings, a phenomenon known as the Urban Heat Island (\gls{uhi}) effect. A key cause is the prevalence of the man-made surfaces like concrete and asphalt. These surfaces limit evaporation and absorb large amounts of radiation during the day, which is released as heat at night. This results in a higher proportion of sensible heat flux (\gls{Qh}) than latent heat flux (\gls{Qe}), contributing to the prevalence of excess heat.
+
+This effect is observable in cities across Australia, including Melbourne, and has significant social and economic consequences \citep{Coutts2010}. Namely, higher heat-related morbidity and mortality is associated with urban areas \citep{Heidari2020}. This is especially a problem during heatwaves, where interactions between \gls{uhi} and heatwave conditions led to intensified heat \citep{Li2013a}, and high night-time \gls{uhi} prevents urban residents relief from heatwave stresses \citep{Clarke1972}.
+
+Urban heat will likely be exacerbated by climate change, aging populations, and continued urbanisation in Australia. Climate change is expected to increase the duration, frequency, and intensity of heatwaves in Australia \citep{Cowan2014}. Simultaneously, Australia has an aging population, with a greater proportion of the population expected to live in capital cities in the near-term future \citep{ABS2008}. As the elderly are especially vulnerable to heat, these factors combined are expected to lead to increased morbidity and mortality, unless appropriate intervention strategies are implemented \citep{Wilson2011a}.
+
+Thus, urban heat mitigation techniques are necessary. Pavement watering is one such technique, where evaporative cooling is induced through wetting urban surfaces. It is currently used in various countries, including France, e.g., \cite{Hendel2015a}, \cite{Hendel2015b}, \cite{Hendel2016}, \cite{Parison2020}, Japan, e.g., \cite{Kinouchi1997}, \cite{Himeno2010}, \cite{Takebayashi2021}, and Korea, e.g., \cite{Kim2014a}, \cite{Kim2015}, \cite{Na2021}. Previous field experiments have showed that pavement watering is associated with decreases in air temperature and improvements in thermal comfort (\ref{sec:appendix7.1}). However, the potential cooling benefits of pavement watering in Melbourne, Australia, has not been assessed.
+
+Thus, the aim of this thesis is to assess the cooling benefits of pavement watering in Melbourne. This was done by conducting a series of experiments on a carpark and investigating air temperature, thermal comfort, surface temperature, and the surface energy balance.
+
+\section{Methods}\label{sec:methods2}
+\subsection{Experiment Site and Design}\label{sec:methods2.1}
+
+The experimental program was conducted within Monash University, Clayton Campus, Australia. Clayton is located in Greater Melbourne , which is characterised as a temperate oceanic climate (K\"{o}ppen climate classification Cfb) \citep{Beck2018}. The experiment site was located on Level 4 of the North 1 Carpark (37$^{\circ}$54'29.44''S, 145$^{\circ}$7'52.13''E), where there is an unshaded, flat rooftop and available water.
+
+Figure \ref{fig:2.1}a shows the experimental setup. A 10m$\times$10m plot was established using silicone sealant applied along the perimeter. This area was manually watered, and efforts were made to ensure the entire plot was wet and minimise runoff. Two weather stations were assembled (Figure \ref{fig:2.1}b) and used alongside Kestrel weather meters. Additionally, a handheld infrared thermometer was used to take transects of surface temperature (\gls{tstrns}). See Table \ref{table:2.1} for sensor specifications.
+
+
+\begin{figure}
+\centering
+\includegraphics[trim={0 0 0 0},clip,scale=1.0]{pict001b.png}
+\caption{\bf The experiment site and setup, showing (a) an aerial view of the site (adapted from Nearmap, 2022); and (b) a conceptual diagram of the weather stations. The control station and kestrel (k5400) positions were not fixed, as they were moved to ensure they were upwind of the watered plot. Sensor details are given in Table 2.1.}
+ \label{fig:2.1}
+\end{figure}
+
+Weather station dataloggers and Kestrels recorded observations every 30 seconds. \gls{tstrns} measurements were conducted before and after watering, and then at 10-minute intervals.
+
+Experiments were conducted on four days in February 2022 (the 7th, 8th, 12th, and 13th). On each of these days, the maximum temperature exceeded 28$^{\circ}$C and there was no precipitation (see \ref{sec:appendix7.2} for the general daily conditions). Data from the first day of experiments (the 7th) was excluded from results due to initial setup errors. Similar to \cite{Middel2021}, watering was done at midday (M), in the afternoon (A), and in the evening (E) in an attempt to capture the effects of pavement watering during peak incoming solar radiation (\gls{Kdown}), peak air temperature (\gls{ta} and \gls{tp}), and after sunset (negative \gls{Qstar}) respectively.
+
+Initially, a volume of 100L was used before being reduced to 60L to avoid excess runoff. On the 13th , an additional 20L of water was applied every 15 minutes for two experiments to test the impacts of a frequent watering. See Table \ref{table:2.2} for a summary of experiments, where each experiment is named after the experiment date and the time of watering.
+
+
+
+
+
+\begin{table}[!ht]\caption{The sensors used in the pavement watering experiments. The symbols correspond to those used in Figure 1.1.}
+    \centering
+   \footnotesize 
+    \begin{tabular}{|p{0.90cm}|p{2.0cm}|p{2.0cm}|p{3.5cm}|p{2.5cm}|p{1.0cm}|p{1.0cm}|}
+    \hline
+        Symbol & Sensor & Model & Variable(s) & Accuracy & Amount & Height(s) \\ \hline
+        \includegraphics[trim={0 0 0 0},clip,scale=0.5]{Picture1.png}& Anemometer & NRG 40C & Wind speed (\gls{u}) & Within 0.1$ms^{-1}$ (between 5 to 25$ms^{-1}$) & 1 (control) & 2.25m  \\ \hline
+        \includegraphics[trim={0 0 0 0},clip,scale=0.5]{Picture2.png}& Thermistor within black sphere & Campbell Scientific BlackGlobe & Globe temperature (\gls{tg}) & $\pm$0.3$^{\circ}$C (between -3$^{\circ}$C to 90$^{\circ}$C) & 2 & 1.5m  \\ \hline
+
+                
+\includegraphics[trim={0 0 0 0},clip,scale=0.5]{Picture3.png} &Temperature and Relative Humidity Probe &Campbell Scientific HMP45C&Air temperature (\gls{ta})&$\pm$0.2$^{\circ}$C at 20$^{\circ}$C, $\pm$0.3$^{\circ}$C at 40$^{\circ}$C &2&1.5m \\ 
+  &&&Relative humidity (\gls{rh})&$\pm$2\% (0\% to 90\%)&& \\ \hline
+  
+\includegraphics[trim={0 0 0 0},clip,scale=0.5]{Picture4.png}&Net Radiometer (with attached thermocouple) &Campbell Scientific CNR1 (Type E thermocouple)&Incoming solar (\gls{Kdown}), outgoing solar (\gls{Kup})
+Incoming far infrared (\gls{Ldown}),
+Outgoing far infrared (\gls{Lup})
+Net radiation (\gls{Qstar})&$\pm$10\% (for the daily totals of each component)&2&1.75m \\ 
+  %&&&2&1.75 m&& \\ 
+  \hline 
+  
+\includegraphics[trim={0 0 0 0},clip,scale=0.5]{Picture5.png}&Infrared Radiometer&Campbell Scientific SI-111&Surface temperature (\gls{ts})&$\pm$0.2$^{\circ}$C (between -10$^{\circ}$C to 90$^{\circ}$C)&1 (experimental)&1.5m \\ \hline   
+
+\includegraphics[trim={0 0 0 0},clip,scale=0.5]{Picture6.png}&Thermocouple&Type E&Air temperature profile (\gls{tp})&Greater of $\pm$1.7$^{\circ}$C or $\pm$0.5\%&10&1.5m, 0.75m, 0.35m, 0.15m, 0.05m \\ \hline     
+
+\includegraphics[trim={0 0 0 0},clip,scale=0.5]{Picture7.png}&Handheld Weather Meter&Kestrel 4400 (k4400)&Air temperature (\gls{Kt}), Relative humidity (\gls{Krh}), Wind speed (\gls{Ku})&±0.5$^{\circ}$C, $\pm$3\%, $\pm$0.1 ms$^{-1}$ or 3\% of reading&1 (experimental)&0.3m \\ \hline
+
+\includegraphics[trim={0 0 0 0},clip,scale=0.5]{Picture8.png}&Handheld Weather Meter&Kestrel 5400 (k5400)&Air temperature (\gls{Kt}), Relative humidity (\gls{Krh}), Wind speed (\gls{Ku})&$\pm$0.5$^{\circ}$C, $\pm$2\%, $\pm$0.1 ms$^{-1}$ or 3\%&1 (control)&0.3m \\ \hline 
+
+\includegraphics[trim={0 0 0 0},clip,scale=0.5]{Picture9.png}&Handheld Infrared Thermometer&Omega O5425-LS&Surface temperature (\gls{tstrns})&$\pm$1$^{\circ}$C at 20$^{\circ}$C, $\pm$0.3$^{\circ}$C at 40$^{\circ}$C&1&-1m \\ \hline    
+  
+%\includegraphics[trim={0 0 0 0},clip,scale=0.8]{Picture3.png}&b&c&d1&e1&f&g \\ \hline                   	
+          
+%\includegraphics[trim={0 0 0 0},clip,scale=0.8]{Picture3.png}&b&c&d1&e1&f&g \\ 
+%  &&&d2&e2&& \\ \hline          
+              	
+%\includegraphics[trim={0 0 0 0},clip,scale=0.8]{Picture3.png}&\multirow{2}{*}b&\multirow{2}{*}c&d1&e1&\multirow{2}{*}f&\multirow{2}{*}g \\ 
+%  &&&d2&e2&& \\ \hline
+            
+            
+    \end{tabular}\label{table:2.1}
+\end{table}
+
+
+
+
+\begin{table}[!ht]\caption{Experiment details, excluding experiments conducted on the 7th due to setup errors.}
+    \centering
+    \begin{tabular}{|p{2.0cm}|p{2.0cm}|p{2.0cm}|p{2.0cm}|p{3.0cm}|}
+    \hline
+        Date & Key & Watering Time/s & Watering Amount/s & Notes \\ \hline
+        08.02.2022 & 08M & 11:40 & 100L & Significant water leakage, reached carpark edge \\ \hline
+        08A & 14:55 & 100L & ~ & ~ \\ \hline
+        08E & 19:30 & 100L & ~ & ~ \\ \hline
+        12.02.2022 & 12M & 11:58 & 60L & Water leakage still present, but more controlled \\ \hline
+        12A & 15:32 & 60L & ~ & ~ \\ \hline
+        12E & 19:30 & 60L & ~ & ~ \\ \hline
+        13.02.2022 & 13M & 12:00 & ~ & ~ \\ \hline
+        12:15, 12:30, 12:45 & 60 L & ~ & ~ & ~ \\ \hline
+        20 L ×3 & Water leakage same the 12th, errors in Tp,1.5, Tp,0.15, and Tg that were fixed before 13E & ~ & ~ & ~ \\ \hline
+    \end{tabular}\label{table:2.2}
+\end{table}
+
+\subsection{Data Processing}\label{sec:methods2.2}
+
+\subsubsection{Sensor Validation}\label{sec:methods2.2.1}
+
+
+A validation period was conducted to ensure that control and experimental sensors were
+comparable. To do this, sensors were placed side by side in a lab after the pavement
+watering experiments. Ideally, sensors should be calibrated before experiments (Phillips
+et al. 2001), but this was not possible due to preparation being severely impacted by the
+technician contracting COVID-19 and timing constraints. The Type E thermocouples
+were not included in the validation period, as they frequently required replacement
+throughout the experiments. However, as all thermocouples were made from the same
+cable roll using the same procedure, this was initially considered acceptable.
+
+The validation period showed that the T a , RH, K RH , ↓L, and ↑L sensors were not directly
+comparable. The T a readings showed several unnatural readings during the experiment
+and validation period (e.g., -40$^{\circ}$C), and thus was discarded in favour of T p,1.5 , which
+also captured air temperature at 1.5 m. For RH and K RH , the mean difference between
+the sensors was calculated and applied to the data.
+The internal ↓L and ↑L calculation considers the measured sensor temperature (T CNR1 ). It
+was found that the difference in T CNR1 was causing the inconsistencies in ↓L and ↑L
+readings. Subsequent tests showed that it was likely that the experimental T CNR1 sensor
+was inaccurate. Therefore, it was assumed that the actual T CNR1 did not vary between the
+control and experimental sensors, thus ↓L and ↑L was corrected by recalculating them
+using the control sensor temperature. More details on the validation period and
+corrections can be found in Appendix 7.3.
+
+\subsubsection{Derived Variables}\label{sec:methods2.2.2}
+
+Additional variables were derived based on the observed data acquired from the
+experiments, namely wind speed at 10 m (u 10 ), surface temperature (T s,drvd ), vapour-
+pressure deficit (VPD), mean radiant temperature (MRT), Universal Thermal Climate
+Index (UTCI, a widely used measure of heat stress in outdoor spaces (Zare et al. 2018)),
+and components of the surface energy balance (SEB).
+
+The wind profile power law (Manwell et al. 2010, Bañuelos-Ruedas et al. 2010) was
+utilised with u and K u to derive u 10 (Appendix 7.4.1). The relationship between T s and
+↑L (Oke et al. 2017) was used to calculate T s,drvd (Appendix 7.4.2). VPD was calculated
+using T p,1.5 and RH (Allen et al. 1998, McMahon et al. 2013) (Appendix 7.4.3). The
+python library pythermalcomfort (Tartarini and Schiavon 2020) was used to calculate
+MRT and UTCI, the former using T g , T p,1.5 , and u 10 , and the latter using T p,1.5 , MRT, RH
+and u 10 (Appendix 7.4.4).
+The SEB was also calculated. It can be simplified as
+Q ∗ = Q H + Q E + ∆Q S
+(Equation 2.1)
+where Q* is the net all radiation (W.m -2 ) (i.e., ( ↓K - ↑K) + ( ↓L - ↑L) ), Q H is the sensible
+heat flux (W.m -2 ), Q E is the latent heat flux (W.m -2 ), and ΔQ S is the change in heat
+storage (W.m -2 ) (Oke et al. 2017). The mean Q E from the start of watering to the
+approximate drying time was estimated based on the amount of water and the
+approximate evaporation time. Q H was calculated based on T s,drvd , T p,0.05 , and u 10 (Liu et
+al. 2007), as well as roughness lengths from Kanda et al. (2007), while Q* was directly
+measured. The mean Q H and Q* from the wet period was calculated, allowing the mean
+ΔQ S to be estimated as the energy balance residual (Oke et al. 2017). These mean values
+were also used to calculate the Bowen ratio (β = Q H / Q E ) alongside the ratio of Q H to
+Q* (Q H / Q*) (Oke et al. 2017). See Appendix 7.4.5 for details.
+
+
+\subsubsection{Statistical Analysis}\label{sec:methods2.2.3}
+
+The difference between the control and experimental sites was calculated (Δ =
+experimental - control, thus Δ < 0 indicates cooling).
+Preliminary analysis showed that even after applying corrections to account for
+incompatible sensors, differences between the control and experimental variables still
+existed before watering took place. These differences varied between the experiments
+and observational variables, and are explored with more detail in the results. As the
+expected impact of watering is small, these relatively small pre-existing differences can
+exaggerate or diminish the actual impact of pavement watering, depending on the initial
+bias.
+Thus, for the purposes of this thesis, impacts were assessed by evaluating changes
+relative to the initial difference. Specifically, the average difference between the control
+and experiment before watering (∆ dry ), taken as a maximum of 30 minutes before
+watering, was compared to the average difference during the wet period (∆ wet ), which
+was defined as when watering was finished to when it was dry under the experimental
+station (for experiments with repeated applications of water, the end of the initial
+watering was used). In other words, the observed cooling impact of pavement watering
+(PW impact ) in a particular experiment was defined as:
+
+PW impact = ∆ wet − ∆ dry
+(Equation 2.2)
+An independent t-test was also conducted to verify if ∆ wet was significantly lower (or
+significantly greater for RH) than ∆ dry .
+The effect of prevailing conditions on the effectiveness of pavement watering was also
+explored. To do this, the PW impact , as well as Q E , were compared to mean of prevailing
+conditions during the wet period via linear regression. The statistical significance of a
+non-zero slope was calculated.
+For the surface temperature transects (T s,trns ), the difference between the mean of the
+watered points and non-watered points was calculated (i.e., ΔT s,trns = T s,trns wet −
+T s,trns dry ), and a t-test was again used to verify if the watered points were significantly
+less than non-watered plots.
+A p-value of less than 0.05 was used to validate significance in all cases.
+
+\section{Results}\label{sec:discussion3}
+\section{Air Temperature}\label{sec:discussion3.1}
+
+An air temperature profile, comprised of temperature observations at five heights (0.05
+m to 1.5 m), was measured at the experimental and control site (T p , see Figure 2.1b).
+
+The difference was calculated between the temperatures of the same height (ΔT p ). Air
+temperature at a specific height is referred to as T p,height and likewise differences at a
+specific height is referred to as ΔT p,height .
+As mentioned in Chapter 2: Methods, there were differences between the experimental
+and control T p before watering was conducted (i.e., ΔT p ≠ 0 before watering). The ΔT p
+before watering was found to be variable between the experiments and the different T p
+heights. In the evening experiments, ΔT p was predominantly less than zero, indicating
+that the experimental site already was cooler than the control site before watering, while
+midday and afternoon experiments had a mixture of both less and greater than zero
+(Appendix 7.5.1). Given the apparently random nature of these pre-existing differences
+at different heights, it is likely they are not reflective of the actual temperature
+differences between the sites.
+The relationship between pre-existing differences and the absolute control temperature
+(T p,con ) as well as wind speed (u 10 ) was investigated. The ΔT p before watering was found
+to have a statistically significant relationship with T p,con for each individual experiment
+and height, apart from experiment 13E at 1.5 m (Appendix 7.5.2). A relationship with
+u 10 was also found, however it was not as consistently statistically significant (Appendix
+7.5.4). There were no significant relationships when considering all the experimental data together, likely as T p sensors frequently malfunctioned and were replaced, and as
+the control station was moved to ensure it remained upwind of the watered plot.
+Thus, ΔT p was detrended based on the linear relationship derived for each individual
+experiment and height in an attempt to remove factors that caused the observed
+differences between sites that were unrelated to pavement watering. However, it was
+found that results were biased by the changes in T p,con and u 10 values throughout the
+experiment.
+Figure 3.1 highlights these issues with an example of observed temperature differences
+for experiment 12M at 0.15 m. The ΔT p,0.15 was already less than zero before watering,
+and thus the cooling of pavement watering would be exaggerated if simply taken as the
+difference between the experimental and control site when the surface is wet (Figure
+3.1c). Despite this, there was still a clear negative shift in ΔT p,0.15 when the surface was
+wet, indicating that pavement watering may have a cooling effect. Thus, it was possible
+to derive the impact of pavement watering by simply shifting the observed differences
+based on the mean of the before watering period, however this assumes that the pre-
+existing differences were constant (Figure 3.1c).
+The linear relationship between the pre-existing ΔT p,0.15 and T p,con at the same height is
+shown in Figure 3.1a (p < 0.01), and the ΔT p,0.15 detrended with this relationship is
+shown in Figure 3.1c. This corrected ΔT p,0.15 shows a positive shift in differences after watering (i.e., the experimental site becoming warmer than the control). However, this
+was likely due to temperatures increasing throughout the midday experiment, beyond
+the values used to calculate the applied linear model. As higher temperature was related
+to a more negative ΔT p,0.15 , the corrected ΔT p,0.15 reflected the change in T p,con relative to
+before watering rather than isolating the impacts of pavement watering. This was also
+seen as the detrended ΔT p based on T p,con generally showed no cooling from pavement
+watering for midday experiments where temperatures increased through the experiment,
+and high cooling for evening experiments where temperature progressively decreased
+(Appendix 7.5.3).
+The same problems were seen when correcting ΔT p based on its relationship with wind
+speed. Figure 3.1b shows the linear relationship between pre-existing ΔT p,0.15 and u 10 (p
+< 0.01), and the corresponding corrected ΔT p,0.15 is shown in Figure 3.1c. The corrected
+ΔT p,0.15 is somewhat similar to correcting ΔT p,0.15 based on the mean of the pre-existing
+differences. The shift in u 10 values before and after watering was not as acute as with
+T p,con , however it still likely leads to unintended side-effects, including increasing the
+variability of ΔT p,0.15 when it is wet.
+
+Thus, to avoid the uncertainties associated with the extrapolation of the calculated linear
+models, the ΔT p relative to the mean before watering was chosen to assess the impacts
+of pavement watering. Figure 3.2 shows the raw and mean corrected ΔT p for experiment
+8M. The corrected ΔT p shows that watering generally had a decreasing impact with
+increasing height. There also was an immediate cooling effect, especially at lower
+heights. After the surface dried, some temperatures differences returned to the
+established baseline (the mean of the before watering differences), however they also
+often increased, or decreased, relative to the baseline. This can be seen in both Figure
+3.2b as well as the other experiments (Appendix 7.5.6). It is difficult to be certain of the
+long-term effects given the apparent instability of the measured differences between the
+control and experimental site, and thus the true impact of pavement watering.
+
+
+\begin{figure}
+\centering
+\includegraphics[trim={0 0 0 0},clip,scale=1.0]{pict011.jpg}
+\caption{\bf A scatter plot of before watering ΔT p vs (a) T p,con and (b) u 10 for each experiment at 0.15 m,
+with the pink line outlined in black showing the linear relationship for experiment 12M. (c) Boxplots of
+ΔT p for dry (before watering) and wet periods of experiment 12M at 0.15 m with different corrections
+applied (raw: no correction, mean: shifted based on dry mean, T p,con : detrended based on linear
+relationship in (a), u 10 : detrended based on linear relationship in (b).}
+ \label{fig:3.1}
+\end{figure}
+
+
+\begin{figure}
+\centering
+\includegraphics[trim={0 0 0 0},clip,scale=1.0]{pict013.png}
+\caption{\bf T p differences for experiment 8M (a) with no correction and (b) corrections based on the
+mean of before watering. The transparent lines represent the raw data, while the solid lines are the 5-
+minute running average. The shading indicates periods when the pavement was wet, and the hatching
+shows when watering was being conducted. The dashed lines on (b) represented the mean of the wet
+period.}
+ \label{fig:3.2}
+\end{figure}
+
+
+To overcome these challenges and uncertainties, the cooling impact of pavement
+watering on air temperature was taken as the mean difference during the wet period
+relative to the mean difference before watering (i.e., PW impact for T p , see (Equation 2.2)).
+The PW impact for T p varied from no observable decrease to a cooling of up to 1$^{\circ}$C, with
+the exception of 2.5$^{\circ}$C at 0.05 m for experiment 8A (Figure 3.3a). Consistent with
+Figure 3.2b, cooling generally decreased with height (Figure 3.3a). Considering all
+experiments, the evening experiments had the lowest air temperature cooling at 0.05 m,
+however there was no clear decrease in cooling for evening experiments at other T p
+heights. However, considering individual experiment days, the cooling was generally
+greatest in the afternoon and lowest in the evening, especially at lower heights.
+Given the spread in results, the specific conditions during individual experiments were
+investigated. Namely, as pavement watering utilities evaporative cooling, firstly the
+impact of prevailing conditions known to influence Q E was explored (Figure 3.3b). Q E was found to be positively correlated to u 10 (p < 0.01, R 2 = 0.74), and also related to
+experimental VPD and Q* (R 2 = 0.31 and 0.15 respectively), although these
+relationships were not statistically significant (p = 0.15 and 0.30 respectively) (Figure
+3.3). As expected, Q* was found to be highly correlated to ↓K (R 2 = 0.99), suggesting
+that solar radiation was a key source of energy for Q E .
+However, there was no strong correlation between air temperature cooling and Q E . Q E
+had a slight positive correlation with air temperature cooling at 0.75 m (R 2 = 0.11) and
+0.35 m (R 2 = 0.01), a weak negative relationship at 1.5 m (R 2 = 0. 07) and 0.15 m (R 2 =
+0.05), and no impact at 0.05 m (R 2 < 0.01)., Additionally, none of these relationships
+were statistically significant (p > 0.4) (Figure 3.3c-g). The weak negative relationship at
+1.5 m and 0.15 m was likely due to the malfunctions at those heights for experiment
+13M and 13A, which had high Q E and low cooling at other heights. Thus, high Q E was
+marginally related to reduced air temperature cooling.
+On the other hand, air temperature cooling was found to be related to wind speed.
+Lower u 10 related to more cooling across all T p heights (R 2 ranged from 0.15 to 0.36),
+although again these relationships were statistically insignificant (p > 0.09) (Figure
+3.3c-g).
+
+
+\begin{figure}
+\centering
+\includegraphics[trim={0 0 0 0},clip,scale=1.0]{pict014.png}
+\caption{\bf (a) The PW impact for T p at each T p height, where each scatter marker colour indicates a
+separate experiment. Note the x-axis is discontinuous. (b) the relationship between Q E and the mean u 10
+(y-axis, green dashed line), the experimental Q*, (red dashed line, colour of scatter marker) and the
+experimental VPD (purple dashed line, border colour of scatter marker) during the wet period; (c-g)
+PW impact for T p vs u 10 y-axis, (green dashed line) and Q E (blue dashed line, colour of scatter marker) at
+each T p height. A black outline for the scatter points indicates a statistically significant change in T p (a, c-
+g), while a black outline on the dashed line indicates a statistically significant linear relationship (b, c-g).}
+ \label{fig:3.3}
+\end{figure}
+
+Air temperature was also recorded at 0.3 m with the Kestrels (K T ) (Figure 2.1a).
+However, this was impacted by rather extreme pre-existing differences, with ΔK T before
+watering found to be up to 6$^{\circ}$C. Additionally, the PW impact for K T (Equation 2.2) did not
+align with results from the temperature profile, with a maximum cooling of 0.84$^{\circ}$C
+(13A) and maximum warming of 0.61$^{\circ}$C (13M) (Appendix 7.5.7). Although the
+Kestrels were tested in the validation period and appeared to be compatible (Appendix
+7.3), the two Kestrels may have responded differently in the relatively dynamic, hot carpark environment, especially when compared to a lab environment. Thus, these
+results are disregarded given that two different Kestrel models were potentially
+inappropriate for the purposes of this experiment.
+Overall, pavement watering was found to reduce air temperature, with a maximum
+decrease of 0.6$^{\circ}$C and 2.5$^{\circ}$C found at 1.5 m and 0.05 m respectively. Despite the
+uncertainties associated with the differences between the control and experimental
+observations, the derived impact of pavement watering on air temperature was within
+estimates from other field studies (see Appendix 7.1, Table 7.2), and indeed align with
+expectations, for example decreased cooling with height. The impact of pavement
+watering was also found to be dependent on prevailing conditions, especially wind
+speed, but was not found to be strongly correlated with Q E .
+
+
+\subsection{Thermal Comfort}\label{sec:discussion3.2}
+
+The thermal comfort benefits of pavement watering was assessed using UTCI. This, as
+well as MRT, was calculated with observational T p,1.5 , RH, T g , and u 10 . As detailed
+above, the air temperature at 1.5 m was significantly different between the control and
+experimental station before watering took place. RH and T g also had pre-existing
+differences, and like T p , this varied with the experiments. Nevertheless, these
+observations were used to calculate MRT and UTCI, and thus these variables also
+inherited pre-existing differences. Thus, as with air temperature, the PW impact (Equation
+2.2) was used to derive the impact of pavement watering.
+
+
+\begin{figure}
+\centering
+\includegraphics[trim={0 0 0 0},clip,scale=1.0]{pict015.png}
+\caption{\bf The PW impact for UTCI and its variables (RH, T p,1.5 , T g , and MRT) for each experiment. The
+black outline indicates a statistically significant impact from watering for a particular variable (p <
+0.05). Note the x-axis is discontinuous.}
+ \label{fig:3.4}
+\end{figure}
+
+The PW impact for UTCI and all its components, save wind speed, which was considered
+the same across the entire carpark, is shown in Figure 3.4. UTCI was found to be
+reduced by 0.2$^{\circ}$C to 2.0$^{\circ}$C by pavement watering, despite watering generally
+increasing RH (-0.02 % to 1.19 %). It should be noted that spikes in RH were seen at the
+experimental site after watering, which was not captured by the PW impact .
+MRT was found to drive UTCI changes, except in experiment 12M and 12E where there
+was little observable air temperature cooling. MRT in turn was driven by reductions in
+T g , except for experiment 12E.
+
+As with air temperature, for individual experiment days, the UTCI reduction is greatest
+in the afternoon and lowest in the evening. Reduction in T g due to watering is weakest
+during the evening, which also leads to a lower UTCI reduction in the evening.
+In summary, pavement watering was found to improve thermal comfort. Despite
+observed increases in RH, reductions in air temperature and globe temperature resulted
+in reducing UTCI by a maximum of 2.0$^{\circ}$C.
+
+\subsection{Surface Temperature}\label{sec:discussion3.3}
+
+The surface temperature was measured via transects (T s,trns ) with one handheld infrared
+thermometer, with 4 points outside the designated watered plot and 4 within (Figure
+2.1a). A single transect was done before watering, allowing for the investigation of
+actual differences within the sites before watering takes place. Additionally, surface
+temperature was derived (T s,drvd ) for the control and experimental station using ↑ L and
+verified with observations from the one available continuous surface temperature sensor
+on the experimental station. ΔT s,trns refers to the difference between the mean surface
+temperature of the watered points and the mean of the non-watered points, while ΔT s,drvd
+refers to the difference between the experimental and control derived surface
+temperature.
+
+
+\begin{figure}
+\centering
+\includegraphics[trim={0 0 0 0},clip,scale=1.0]{pict016.png}
+\caption{\bf (a) The T s,trns of experiment 13E showing the evolution from before, during, and after the wet
+period (rows) for control and experimental points along the transect (columns); (b) the ΔT s,trns of all
+experiments, where the wet refers to the mean ΔT s,trns of the wet period. The black outline indicates that
+the experimental points are statistically significantly lower than the control points (p < 0.05).}
+ \label{fig:3.5}
+\end{figure}
+
+Figure 3.5 shows the surface temperature transects for experiment 13E, alongside the
+ΔT s,trns for all experiments. Both these figures show that watering resulted in a clear
+reduction in surface temperature, and this cooling remained significant even after the
+surface visibly dried.
+
+The heterogeneity of the carpark surface is also apparent in Figure 3.5a. The greatest
+difference within the control points for the same transect was 3.8$^{\circ}$C (12A), and 8.4$^{\circ}$C
+(8A) for experimental points (Appendix 7.5.8), the latter potentially due to the different
+drying rates across the watered plot.
+It is also evident that ΔT s,trns was usually less than zero before watering, and this
+difference was statistically significant for three experiments (Figure 3.5b). With the
+exception of experiment 8M, the magnitude of these before watering differences
+increased throughout the day (e.g., 13M < 13A < 13E) (Figure 3.5b). This suggests that
+the effect of watering lasted beyond a given experiment, and has a long-lasting cooling impact on surface temperature. This is also shown in the derived surface temperature,
+where there was little differences between control and experimental sites before the
+midday experiment (-0.2$^{\circ}$C to -0.5$^{\circ}$C), followed by a significantly cooler experimental
+surface temperatures before the afternoon (-1.7$^{\circ}$C to -2.2$^{\circ}$C) and evening (-1.8$^{\circ}$C to -
+3.4$^{\circ}$C) experiments (Appendix 7.5.10).
+In an attempt to isolate the experiments, the ΔT s,trns was also calculated relative to the
+transect done before watering. A mean decrease of 4.0$^{\circ}$C to 9.0$^{\circ}$C was observed
+during the wet period for the isolated experiments (Appendix 7.5.9). The raw mean
+decrease in surface temperature can be taken as the cumulative impact of pavement
+watering, and this was slightly higher (4.2$^{\circ}$C to 9.3$^{\circ}$C) (Figure 3.5b).
+As derived surface temperature was observed regularly, the impact of pavement
+watering for each individual experiment can be derived with PW impact (Equation 2.2).
+Pavement watering decreased T s,drvd by 2.1$^{\circ}$C to 6.8$^{\circ}$C, however it should be noted that
+experimental T s,drvd does not completely capture the minimum surface temperature
+observations (as measured by the observational T s sensor), and thus these results are
+likely underestimated (Appendix 7.5.10). Similar to the ΔT s,trns , the cumulative impact
+of watering on surface temperature can be taken as the mean during the wet period
+without any corrections. The cumulative decrease seen in T s,drvd was 3.7$^{\circ}$C to 7.3$^{\circ}$C
+(Appendix 7.5.10).
+
+In all measures of surface temperature, there was generally lower individual reductions
+in the evening experiments, although this was partially compensated with the
+cumulative cooling from previous experiments. The highest individual and cumulative
+cooling was seen in the afternoon, likely as the experimental surface reached its peak
+temperature in the period before the afternoon experiment (Appendix 7.5.10).
+In general, the surface temperature cooled by up to 9.0$^{\circ}$C due to pavement watering.
+The watered surface remained noticeably cooler than the non-watered surface even after
+the water visibly dried, and likely led to cumulative cooling for each subsequent
+experiment within the individual experiment days. Thus, pavement watering was shown
+to significantly reduce surface temperature when wet and have a prolonged cooling
+effect even after the surface dried.
+
+\subsection{Surface Energy Balance}\label{sec:discussion3.4}
+
+The surface energy balance (SEB) was simplified to net radiation (Q*), latent heat flux
+(Q E ), sensible heat flux (Q H ), and change in heat storage (ΔQ S ). Q* was directly
+observed, while Q E and Q H where calculated, the latter based largely on the derived
+surface temperature (T s,drvd ) at air temperature at 0.05 m (T p,0.05 ). Finally, ΔQ S was
+derived as the SEB residual.
+
+\begin{figure}
+\centering
+\includegraphics[trim={0 0 0 0},clip,scale=1.0]{pict017.png}
+\caption{\bf (a) The mean SEB of each experiment’s control and experimental site during the wet period;
+(b) the β alongside the Q H and Q* ratio for each experiment.}
+ \label{fig:3.6}
+\end{figure}
+
+Figure 3.6a shows the mean SEB during the wet period at the control and experimental
+site for each experiment. There is a marked impact of watering, namely the presence of
+Q E , higher Q*, and lower Q H and ΔQ S .
+
+It was found that surface albedo and temperature decreased due to watering, leading to
+decreased ↑K and ↑L, and thus higher Q*. Q E more than compensates for this increase in
+Q*, as a large portion of Q* appears to be forcing Q E for midday and afternoon
+experiments, while energy is predominantly provided by ΔQ S in the evening. ΔQ S was
+also notably negative for experiment 13A, and Q H was negative for 13E, suggesting that
+they also contributed to Q E .
+
+Figure 3.6b shows the Bowen ratio (β) alongside the Q H to Q* ratio (Q H /Q*) for each
+experiment. The β ranges from 0.04 to 0.44 during the day, and from -0.07 to 0.11 in the
+evening. A daytime β of 0.1 to 0.3 is typical of a tropical wet forest, while a β of 3 to 8
+is associated with urban areas with < 20% greenspace (Oke et al. 2017). Thus, it is
+evident that the addition of water allows otherwise the dry carpark, characteristic of an
+urban area, to imitate highly evaporative environments.
+The difference between the experimental and control Q H /Q* (i.e., the ΔQ H /Q*) ranges
+from -0.05 to -0.37 in the midday and afternoon experiments (Figure 3.6b), indicating
+that less Q* was partitioned into Q H due to watering despite increased Q*. For the
+evening experiments, ΔQ H /Q* ranged from 0.21 to 1.27 (Figure 3.6b). This indicates
+that the control site had a lower Q H /Q*, which is expected as Q* is negative, and thus
+still relates to a decreased Q H at the watered site.
+It should be acknowledged that existing differences before each experiments impacted
+the SEB and Q H /Q*, as T s,drvd and T p,0.05 both had differences between the control and
+experimental site before watering, as discussed in previous sections. Analysis of the
+SEB in the period before watering reflected these pre-existing differences between the
+sites, especially for afternoon and evening experiments (Appendix 7.5.11). Thus, the
+actual impact of watering on ΔQ H /Q* can be deduced from the relative change from the
+ΔQ H /Q* before watering. This difference ranged from -0.04 to -0.24 in the midday and afternoon, and from -0.03 to 1.17 in the evening (Appendix 7.5.12). Thus, watering still
+resulted in a lower proportion of Q H , except for experiment 8E, where there was little
+change relative to before watering took place.
+However, these pre-existing differences in the SEB were largely related to the prolonged
+impact of watering on surface temperature (i.e., differences between the experimental
+and control T s,drvd rather than T p,0.05 ). This can be seen as the wet period ΔQ H /Q* at
+midday matches fairly well with the before watering ΔQ H /Q* in the afternoon for all
+experiment days (e.g., 13M ΔQ H /Q* when wet was close to 13A ΔQ H /Q* before
+watering), highlighting the effect of prolonged cooling of the surface temperature on the
+SEB (Appendix 7.5.12). Thus, as with surface temperature, the ΔQ H /Q* during the wet
+period can be taken as the cumulative impact of pavement watering (Figure 3.6b), while
+the ΔQ H /Q* relative to before watering can be assumed to be the individual experiment
+impact.
+Overall, pavement watering had a considerable impact on the SEB of the carpark. The
+expected characteristics of a carpark (high Q H and ΔQ S ) were seen at the control site,
+while the SEB for the watered section was dominated by Q E , which is more typical of
+moist environments. The changes in the SEB are the driving force behind the observed
+cooling provided by pavement watering.
+
+\section{Discussion}\label{sec:discussion}
+
+As noted above, a key confounding factor of this study stems from the existing
+differences in the experimental and control observations before watering took place.
+Given the apparent heterogeneity of the carpark surface (Figure 3.5a and Appendix
+7.5.8), it appears that there may have been slight actual differences between the sites.
+Moreover, experiments were not as independent as initially assumed, as both the surface
+temperature transects and the derived surface temperature showed a prolonged cooling
+due to pavement watering after the surface visibly dried (Figure 3.5 and Appendix
+7.5.10). However, pre-existing differences for other observations were less stable, for
+example the differences between the control and experimental air temperature profile
+changed between experiments and heights (Appendix 7.5.1).
+These differences between the control and experimental air temperature observations
+were negatively correlated to the absolute control observations at an individual
+experiment level (Appendix 7.5.2), suggesting that the temperature sensors had different
+sensitivities. Wind speed may have also impacted the control and experimental
+observations in some experiments (Appendix 7.5.4), indicating that potentially the
+temperature sensors were not secured properly. However, attempts to isolate and
+remove these factors that contributed to these differences resulted in the corrected data reflecting changes in observed control temperature and wind speed, rather than potential
+impacts of watering (Appendices 7.5.3 and 7.5.5).
+Therefore, the impact of pavement watering was deduced by comparing differences
+relative to the mean of the dry period. This is still not ideal, as it involves assuming that
+the ‘natural’ difference during an experiment remains stationary. However, this was
+considered necessary, as using uncorrected data would result in overestimating or
+underestimating the impact of watering, depending on the initial bias. Indeed, given the
+alignment of results, for example the cooling impact decreasing with temperature
+height, it is considered an adequate representation of the impact of pavement watering.
+Pavement watering’s effectiveness at reducing air temperature was found to be
+dependent on wind (Figure 3.1c-g), where lower wind speeds allowed cooling to
+accumulate and propagate upwards. This corresponds to pavement watering activation
+conditions in Paris, where wind speed needs to be less than 2.8 m.s -1 \cite{Hendel2015a}.
+As pavement watering utilises evaporative cooling, it was interesting to observe that Q E
+had a weak correlation with air temperature, and higher Q E was associated with less
+cooling at some heights (Figure 3.3c-g). This is likely due to the competing effect of
+wind speed, where higher wind speeds were found to strongly enhance Q E (Figure 3.3b)
+while simultaneously limiting observed cooling.
+
+The experiment with the highest air temperature and thermal comfort benefits (8A) had
+low wind speeds and average Q E , while an experiment with lower wind speeds but low
+Q E had insignificant cooling at 1.5 m (12M) (Figure 3.3c-g, Figure 3.4). This indicates
+the pavement watering is most effective when Q E is high at low wind speeds, for
+example when VPD is high.
+There is a possibility that advection caused a downwind propagation of cooling, as
+observed in urban parks (Motazedian et al. 2020), however given the small plot being
+watered and lack of observations downwind, this would need subsequent tests to prove.
+In terms of watering time, evening experiments generally had the lowest observed
+cooling benefits, particularly for surface temperature, the air temperature closest to the
+ground (T p,0.05 ), and T g ; and thus, MRT and UTCI by relation. The relatively low
+reductions in surface temperature arguably occurred as the carpark surface was already
+cooling down due to the lack of ↓K, and likely influenced evening T p,0.05 and T g . Indeed,
+Takebayashi et al. (2021) found that the cooling effect of pavement watering on surface
+temperature was generally greater the hotter the surface temperature was, which was
+also reflected in this study. However, there does not appear to be a clear relationship
+between surface temperature and air temperature other than at 0.05 m in the evening,
+potentially due to the stronger heat turbulence during the day and the evident influence
+of horizontal advection.
+
+Despite the lower cooling benefits, pavement watering may provide key benefits in the
+evening. Namely, there was a negative Q H in experiment 13E, while all other evening
+experiments had a positive Q H . This likely occurred due to the prolonged cooling impact
+pavement watering had on surface temperature, which meant that before watering for
+experiment 13E, Q H was already lower at the experimental site compared to the control.
+Additionally, the previous experiments of the day, 13M and 13A, had small and
+negative ΔQ S respectively, indicating that the accumulation of heat storage in the ground
+that is typical of urban surfaces (Oke 1982, Anandakumar 1999) was severely limited
+by pavement watering. This in turn was likely due to the fact that both experiments were
+characterised by high Q E , due to both ideal evaporation conditions (high wind speed and
+VPD) and the extra water that was applied for these experiments. Thus, the previous
+watering throughout the day may have allowed the reversal of Q H when watering was
+applied in the evening. This implies that frequent watering in the right conditions may
+allow urban areas to cool more effectively at night, and thus mitigate the negative health
+impacts of high night-time temperatures characteristic of urban areas (Clarke 1972,
+Coutts et al. 2010).
+However, it should be noted that numerous assumptions were made to calculate the
+SEB. Notably, ΔQ S was calculated indirectly and any advection of energy was ignored.
+Despite this, Cohard et al. (2018) study on the energy budget of a carpark under
+simulated rainfall events, with appropriate sensors to directly measure ΔQ S and Q H , observed the former providing energy for Q E during the day and latter becoming
+negative at night, which aligns with results. Thus, the overall SEB results are considered
+valid.
+The cooling benefits of pavement watering found can also be compared to other studies.
+A study on pavement watering in Paris found a reduction of up to 1$^{\circ}$C in air
+temperature and 3.4$^{\circ}$C in UTCI at 1.5 meters (Parison et al. 2020). This is
+comparatively higher than the maximum reduction in 1.5 m air temperature and UTCI
+found in this study, which was 0.6$^{\circ}$C and 2.0$^{\circ}$C respectively. The key difference is that
+the study in Paris examines the observations of a street that is watered when specific
+conditions are met, using data from the summers of 2013 to 2018 (Parison et al. 2020),
+while this study is limited to a small 10 m x 10 m plot and three days of experiments.
+Thus, a crucial limitation of this study is the small-scale of the experiment, which may
+have restricted the observed cooling benefits and exaggerated the influence of wind.
+Several assumptions were also made to calculate variables, and indeed to extract the
+impact of pavement watering itself. A potential improvement to this study would be to
+appropriately calibrate the instruments before the experiment, and perhaps a preliminary
+site assessment, as this may have prevented the need for corrections.
+Despite limitations, the benefits of pavement watering were still found to agree with the
+existing literature. Namely, it is relatively simple to apply in highly urbanised areas and induces a fast-cooling response in the right conditions. For example, in France,
+pavement watering is conducted via cleaning trucks assisted by manual operators
+\citep{Hendel2014}. Although this study found relatively small reductions, pavement
+watering still may provide significant outcomes. Nicholls et al. (2008) showed that in
+Melbourne, higher mortality of those over 64-years-old is correlated to higher mean
+daily temperatures once 30$^{\circ}$C is exceeded (calculated as the mean of the day’s
+maximum temperature and the night’s minimum temperature). This suggests that even
+small reductions in both daily and night-time temperature can potentially reduce
+mortality.
+On the other hand, the cooling is highly localised and although there may be relatively
+small enduring reductions in surface temperature, the limited storage capacity of
+pavements means that frequent application of water is necessary to sustain benefits.
+Moreover, urban heat mitigation techniques should ideally improve a range of social,
+environmental, and economic outcomes on long-term basis. Pavement watering can be a
+permanent solution, depending on the type of supporting infrastructure used, as well as
+provide multiple benefits. For example, in Korea, pavement watering instalments are
+used to melt snow on roads, discharge water from underground subway systems, and
+reduce air pollution (Kim et al. 2014, Na et al. 2021). This highlights the additional value provided by pavement watering, where other issues are simultaneously targeted
+alongside urban heat.
+However, in the context of Melbourne, there is no snow and a growing interest in Water
+Sensitive Urban Design (WSUD) (Dahlenburg and Birtles 2012). WSUD seeks to
+reduce runoff and increase infiltration in urban areas (Broadbent et al. 2018). For
+example, both urban greening and biofiltration systems reduce urban runoff, therefore
+mitigating downstream stream pollution and erosion (Walsh et al. 2012, Hatt et al.
+2004), while also mitigating urban heat (Demuzere et al. 2014). For example, street
+trees in Melbourne were found to induce reductions of up to 1$^{\circ}$C in air temperature and
+12$^{\circ}$C in UTCI (Coutts et al. 2016). This marked improvement in UTCI is
+predominately due to shading, which pavement watering cannot provide. Therefore,
+these techniques are more suited to mitigate urban heat in the Australian context.
+However, these long-term solutions tend to require more planning and resources, and
+thus can take time to implement. Thus, although pavement watering is not an ideal long-
+term solution, it may be useful to provide immediate cooling in heat-related
+emergencies in Australia.
+
+\section{Conclusion}\label{sec:conclusion}
+
+The viability of pavement watering as an urban heat mitigation technique in Melbourne,
+Australia was investigated with a series of carpark experiments. Pavement watering was
+found to reduce air temperature and improve thermal comfort in the right conditions,
+including low wind speeds and a high vapour-pressure deficit, with a maximum
+reduction of 0.6$^{\circ}$C and 2$^{\circ}$C for 1.5 m air temperature and the Universal Thermal
+Comfort Index respectively. A reduction of up to 9.0$^{\circ}$C in surface temperature was also
+found, and lower surface temperatures persisted even after the surface visibly dried.
+This resulted in reduced sensible heat flux during and after pavement watering. Thus,
+pavement watering has the potential to provide immediate cooling in Melbourne during times of extreme heat.
+However, further research is needed to provide additional evidence for the benefits of pavement watering in Australia. This could include larger scale experiments with correctly calibrated sensors, with observations downwind of the watered area to understand the extent of cooling. Furthermore, it may be interesting to model the effect of pavement watering in an Australian context, and thus be able to assess benefits in a controlled environment.
+
+%\section{Discussion}\label{sec:discussion}
+%
+%\subsection{The influence of urban surfaces on urban heat}\label{sec:discinfluence}
+%
+%
+%\section{Conclusion}\label{sec:conclusion}
+
+%\gls{utci}
+%\gls{pwimpact}
+%\gls{Krh}
+%\gls{Kt}
+%\gls{Ku}
+%\gls{Kdown}
+%\gls{Kup}
+%\gls{Ldown}
+%\gls{Lup}
+%\gls{Tmrt}
+%\gls{p}
+%\gls{Qstar}
+%\gls{Qe}
+%\gls{Qh}
+%\gls{QhQstar}
+%\gls{deltaqs}
+%\gls{r2}
+%\gls{rh}
+%\gls{seb}
+%\gls{ta}
+%\gls{tcnr1}
+%\gls{tg}
+%\gls{tp}
+%\gls{tpm}
+%\gls{tpcon}
+%\gls{ts}
+%\gls{tsdrvd}
+%\gls{tstrns}
+%\gls{deltatstrns}
+%\gls{u}
+%\gls{u10}
+%\gls{uhi}
+%\gls{utci}
+%\gls{vpd}
+%\gls{wsud}
+%\gls{bowen}
+%\gls{delta}
+%\gls{deltadry}
+%\gls{deltawet}
+
+
+\printglossaries
+
+\section{References}\label{sec:ref}
+\bibliographystyle{elsarticle-harv} 
+\bibliography{Bib}
+
+
+
+\newglossaryentry{wsud}{name=$WSUD$,description={Water Sensitive Urban Design)}}
+\newglossaryentry{bowen}{name=$\beta$,description={Bowen Ratio}}
+\newglossaryentry{delta}{name=$\Delta$,description={Difference between the experimental and control observations, calculated as experimental - control}}
+\newglossaryentry{deltadry}{name=$\Delta_{dry}$,description={Mean $\Delta$ before watering when both control and experimental were dry}}
+\newglossaryentry{deltawet}{name=$\Delta_{wet}$,description={Mean $\Delta$ when experimental was wet}}
+
+\newglossaryentry{pwimpact}{name=$PW_{impact}$,description={The derived impact of pavement watering ($\bar{\Delta}_{wet} - \bar{\Delta}_{dry}$)}}
+\newglossaryentry{Krh}{name=$K_{RH}$,description={Kestrel Relative Humidity (\%)}}
+\newglossaryentry{Kt}{name=$K_{T}$,description={Kestrel Air Temperature ($^{\circ}$C)}}
+\newglossaryentry{Ku}{name=$K_{u}$,description={Kestrel Wind Speed ($ms^{-1 }$)}}
+\newglossaryentry{Kdown}{name=$K\downarrow$,description={Incoming Solar Radiation ($Wm^{-2}$)}}
+\newglossaryentry{Kup}{name=$K\uparrow$,description={Outgoing Solar Radiation ($Wm^{-2}$)}}
+\newglossaryentry{Ldown}{name=$L\downarrow$,description={Incoming Far Infrared Radiation ($Wm^{-2}$)}}
+\newglossaryentry{Lup}{name=$L\uparrow$,description={Outgoing Far Infrared Radiation ($Wm^{-2}$)}}
+\newglossaryentry{Tmrt}{name=$T_{MRT}$,description={Mean Radiant Temperature ($^{\circ}$C)}}
+\newglossaryentry{p}{name=$p$,description={p-value}}
+\newglossaryentry{Qstar}{name=$Q^{*}$,description={Net Radiation ($Wm^{-2}$)}}
+\newglossaryentry{Qe}{name=$Q_{E}$,description={Latent Heat Flux ($Wm^{-2}$)}}
+\newglossaryentry{Qh}{name=$Q_{H}$,description={Sensible Heat Flux ($Wm^{-2}$)}}
+\newglossaryentry{QhQstar}{name=$Q_{H} / Q^{*}$,description={The Ratio of $Q_{H}$ to $Q^{*}$}}
+\newglossaryentry{deltaqs}{name=$\Delta Q_{S}$,description={Change in Heat Storage ($Wm^{-2}$)}}
+\newglossaryentry{r2}{name=$R^{2}$,description={Coefficient of Determination}}
+\newglossaryentry{rh}{name=$RH$,description={Relative Humidity (\%)}}
+\newglossaryentry{seb}{name=$SEB$,description={Surface Energy Balance}}
+\newglossaryentry{ta}{name=$T_{a}$,description={Air Temperature ($^{\circ}$C) measured with the HMP45C}}
+\newglossaryentry{tcnr1}{name=$T_{CNR1}$,description={CNR1 Temperature ($^{\circ}$C)}}
+\newglossaryentry{tg}{name=$T_{g}$,description={Globe Temperature ($^{\circ}$C)}}
+\newglossaryentry{tp}{name=$T_{p}$,description={Air Temperature Profile ($^{\circ}$C)}}
+\newglossaryentry{tpm}{name=$T_{p,\#}$,description={Air Temperature at \# m ($^{\circ}$C)}}
+\newglossaryentry{tpcon}{name=$T_{p,con}$,description={Control Air Temperature Profile ($^{\circ}$C)}}
+\newglossaryentry{ts}{name=$T_{s}$,description={Surface Temperature ($^{\circ}$C) measured with the SI-111}}
+\newglossaryentry{tsdrvd}{name=$T_{s,drvd}$,description={Derived Surface Temperature ($^{\circ}$C)}}
+\newglossaryentry{tstrns}{name=$T_{s,trns}$,description={Surface Temperature ($^{\circ}$C) along a transect measured with the O5425-LS}}
+\newglossaryentry{deltatstrns}{name=$\Delta T_{s,trns}$,description={The difference between the mean of the watered points and non-watered
+points along the surface temperature transect}}
+\newglossaryentry{u}{name=$u$,description={Wind Speed measured at 2.25 m ($ms^{-1 }$)}}
+\newglossaryentry{u10}{name=$u_{10}$,description={Wind Speed at 10 m, derived ($ms^{-1 }$)}}
+\newglossaryentry{uhi}{name=$UHI$,description={Urban Heat Island}}
+\newglossaryentry{utci}{name=$UTCI$,description={Universal Thermal Climate Index ($^{\circ}$C))}}
+\newglossaryentry{vpd}{name=$VPD$,description={Vapour-Pressure Deficit (kPa)}}
+
+
+
+
+
+
+
+
+
+
+\newglossaryentry{utci}{name=$UTCI$,description={universal thermal climate index (\SI{}{\degreeCelsius})}}
+%\newglossaryentry{tsfc}{name=$T_{sfc}$,description={surface temperature (\SI{}{\degreeCelsius})}} 
+%\newglossaryentry{tcan}{name=$T_{can}$,description={canyon averaged air temperature (\SI{}{\degreeCelsius})}} 
+%\newglossaryentry{ta}{name=$T_{a}$,description={Air temperature (\SI{}{\degreeCelsius})}} 
+%\newglossaryentry{tmrt}{name=$T_{mrt}$,description={mean radiant temperature (\SI{}{\degreeCelsius})}} 
+%\newglossaryentry{lst}{name=$LST$,description={land surface temperature (\SI{}{\degreeCelsius})}}
+%\newglossaryentry{lcz}{name=LCZ,description={local climate zones}}
+%\newglossaryentry{htc}{name=HTC,description={human thermal comfort}}
+%\newglossaryentry{WUDAPT}{name=WUDAPT,description={World Urban Database and Access Portal Tools}}
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+\clearpage
+
+\section{Acknowledgements}\label{sec:ack}
+KAN is supported by NHMRC/UKRI grant (1194959).
+
+\appendix
+\setcounter{table}{0}
+\renewcommand{\thetable}{A\arabic{table}}
+
+\section{Appendix}\label{sec:appendix7}
+\subsection{Literature Review}\label{sec:appendix7.1}
+\subsubsection{Aims}\label{sec:appendix7.1.1}
+Urban areas face a growing threat of extreme heat; thus, we are interested in
+investigating methods to mitigate this heat. Pavement watering is one of these methods,
+where evaporative cooling is achieved through wetting impervious surfaces. This
+literature review aims to explore pavement watering. Firstly, urban climates will be
+briefly introduced, and the need to mitigate heat identified. Next, the general behaviour
+of water on impervious surfaces will be discussed, then existing studies on pavement
+watering will be examined.
+
+\subsubsection{Urban Climates}\label{sec:appendix7.1.2}
+Urban areas are highly developed regions, dominated by man-made structures that have
+replaced natural landscapes. These dense built-up areas have complex interactions with
+climate, many of which encourage warming. As a result, urban areas are significantly
+hotter than surrounding rural regions, a phenomenon known as the Urban Heat Island
+(UHI) effect.
+A key consequence of UHI is the intensification of heatwaves. Indeed, the heat stress
+from interactions between UHI and heatwave conditions were found to be greater than the sum of the two effects (Li and Bou-Zeid 2013). Higher heat-related mortality is
+associated with urban areas (Heidari et al. 2020), with one key influence being the
+night-time UHI preventing urban residents’ relief from heatwave stresses (Clarke 1972).
+The vulnerability of urban areas is likely to be exacerbated with climate change and
+population growth. An increase in hot extremes has already been observed across
+almost all regions, and this trend is expected to continue with heatwaves projected to
+become more frequent and intense (IPCC 2021). Likewise, urbanisation is expected to
+increase, with the global population living in urban areas expected to grow from 55 % in
+2018 to 68 % by 2050 (United Nations 2019).
+It is thus imperative that we investigate methods to mitigate urban heat. Pavement
+watering is a technique that takes advantage of the prevalence of impervious surfaces in
+urban areas. To explore pavement watering, it is first useful to consider the urban
+energy balance, a fundamental concept underlying urban climates.
+
+\subsubsection{Urban Energy Balance}\label{sec:appendix7.1.2.1}
+The energy balance is driven by the net all-wave radiation (Q*), i.e., the sum of
+incoming and outgoing shortwave (K↓, K↑) and longwave radiation (L↓, L↑).
+Urban areas also have additional sources of energy as a result of human activity (e.g.,
+vehicles and air conditioners), which is accounted for as anthropogenic heat flux (Q F ).
+The net energy is partitioned into turbulent sensible heat flux (Q H ), turbulent latent heat
+flux (Q E ), and net heat storage (ΔQ S ). Energy is also distributed via windborne
+transport, summarised as the net energy advection (ΔQ A ). Thus, the urban energy
+balance can be summarised as (Oke 1988, Grimmond et al. 2010):
+Q ∗ + Q F = Q H + Q E + ∆Q S + ∆Q A .
+(Equation 7.1)
+The distribution of turbulent heat transfer between Q H and Q E is dependent on water
+availability. While vegetated surfaces have the capacity to retain water and favour Q E ,
+impervious surfaces only intermittently store small amounts of water, and when dry are
+an exclusive source of Q H (Figure 7.1). Urban areas are composed of both surface types,
+with a higher conversion of natural to constructed surfaces increasing the energy
+partitioned into Q H (Oke et al. 2017). This reduction in Q E relative to surrounding rural
+areas due to this ‘water-proofing’ effect of impervious surfaces is a major contributing
+factor to UHI (Oke 1982).
+
+\begin{figure}
+\centering
+\includegraphics[trim={0 0 0 0},clip,scale=1.0]{SEB.png}
+\caption{\bf Example surface energy balances of (a) dry asphalt road and (b) moist grass in an urban
+park (b), taken from Oke et al. (2017).}
+ \label{fig:7.1}
+\end{figure}
+
+Impervious surfaces also typically absorb large amounts of Q* during the day (Cohard
+et al. 2018). This accumulated ΔQS is then released at night, which can support a
+positive night-time QH (Figure 7.1) (Oke et al. 2017, Cohard et al. 2018).
+Consequently, urban areas are prone to high night-time temperatures, which in turn, can
+led to negative health outcomes (Clarke 1972, Coutts et al. 2010).
+Water on impervious surfaces introduces QE into the energy balance and modifies the
+distribution of energy. However, QE is closely related to how water behaves on
+impervious surfaces. This is explored in the next section.
+
+\subsubsection{Impervious Surface Hydrology}\label{sec:appendix7.1.3}
+As with energy, it is beneficial to start with the water balance to investigate impervious
+surface hydrology. The urban energy and water balance are linked as Q E is directly
+related to evaporation (E). The urban energy balance is given by
+P + I = E + D + R + ∆S
+(Equation 7.2)
+where P is precipitation, I is non-natural water inputs (i.e., pavement watering), D is
+drainage (also referred to as infiltration), R is runoff, and ΔS is change in surface storage
+(Mitchell et al. 2008, Grimmond et al. 1986).
+Accurately estimating these terms is difficult, as the hydraulic behaviour of urban
+surfaces is highly variable. It is dependent on the specific surface characteristics, the intensity and duration of rainfall (Fletcher et al. 2013), and can vary on seasonal and
+decadal timescales (Redfern et al. 2016).
+In this review, we are specifically interested in the behaviour of water on impervious
+surfaces. Thus, the next sections will explore how each term on the right-hand side of
+(Equation 7.2 behaves within this context.
+
+\subsubsection{Evaporation}\label{sec:appendix7.1.3.1}
+
+
+Evaporation on impervious surfaces is intermittent, and generally only accounts for a
+minor portion of total evapotranspiration in urban areas. However, this portion can still
+be significant. For example, Ramamurthy and Bou-Zeid (2014) used the Princeton
+Urban Canopy Model (PUCM) and observations to analyse Q E during a 10-day period
+with relatively high rainfall. During this studied period, it was found that the Q E from
+rooftops, concrete, and asphalt surfaces contributed to 17% of total Q E .
+Evaporation is dependent on various factors. These factors are summarised by Monteith
+(1991) as follows: the net available energy, the state of the surrounding air, and the
+available water on the evaporating surface.
+The net available energy relates to the energy balance (Equation 7.1), where Q* is
+commonly the major energy source for evaporation (Penman 1948, McMahon et al.
+2013).
+
+On the other hand, the state of the surrounding air relates to its temperature, vapour
+pressure, and its velocity (McMahon et al. 2013). These factors are not independent, as
+the maximum saturation of water vapour in the air varies with temperature, with higher
+temperatures having a higher saturation. Temperature also has a slight effect on the
+amount of energy required for evaporation (i.e., the latent heat of vaporisation), which is
+lower for higher temperatures (Shuttleworth 2012). Vapour pressure relates to the actual
+amount of water vapour in the air compared to the amount at saturation and influences
+the evaporation rate. Velocity corresponds to the removal of water vapour from the
+evaporating surface, which is needed for evaporation to occur (McMahon et al. 2013).
+Finally, evaporation is also highly dependent on the amount of water available. Thus,
+we need to know how water is distributed on impervious surfaces, i.e., the remaining
+terms in the urban water balance.
+
+\subsubsection{Drainage}\label{sec:appendix7.1.3.2}
+
+Drainage is generally less substantial in urban settings compared to rural areas;
+however, it is highly variable spatially and temporally (Raimbault 2001). It is often
+incorrectly assumed that constructed urban surfaces, such as roads and pavements, are
+completely impermeable and thus have no infiltration (Redfern et al. 2016). Indeed, the
+term 'impervious' is perhaps misleading when drainage through these surfaces has been
+observed and measured (see Rammal and Berthier (2020) and Redfern et al. (2016)).
+
+Infiltration is dependent on the amount of void space within a material, as it dictates the
+amount of water that can pass through (Aboufoul and Garcia 2017). Factors that also
+impact infiltration include the surface storage, surface properties, age, traffic loading,
+cracks, and joints (Rammal and Berthier 2020, Redfern et al. 2016).
+For example, Ramier et al. (2004) tested the hydrological behaviour of three asphalt
+concrete samples, one of which was taken from a heavy traffic simulator, and thus was
+more porous due to deterioration. For the deteriorated sample, 58 % of the rainfall over
+a 5-month period infiltrated, compared to 2 to 3 % infiltration of the other samples.
+Thus, infiltration is difficult to accurately predict.
+
+\subsubsection{Storage and Runoff}\label{sec:appendix7.1.3.3}
+
+The water storage capacity of impervious surfaces controls the water balance. It dictates
+the amount of water that is available for evaporation or infiltration, and what will be lost
+to runoff.
+The bucket model (also known as the water reservoir model) is commonly employed for
+impervious surfaces. This involves assuming surfaces have a variable water storage with
+a fixed upper limit, which once exceeded, generates runoff (Rammal and Berthier
+2020). Traditionally, urban areas are designed to remove excess water as quickly as
+possible via pathways such as sewer systems. Thus, it is a common to assume that runoff from impervious surfaces is transported out of the system (e.g., Kronaveter et al.
+(2001)).
+As with drainage, the maximum water storage of urban surfaces is highly
+heterogeneous. Influencing factors include surface type, geometrical characteristics,
+slope, and the rainfall event (Rammal and Berthier 2020). One study investigated water
+holding depths for brick, asphalt, cement, and concrete surfaces and found variation
+from 0.4 to 1 mm (Figure 7.2), with larger roughness correlated with higher interception
+(Zhou et al. 2021).
+
+\begin{figure}
+\centering
+\includegraphics[trim={0 0 0 0},clip,scale=1.0]{Impervious.png}
+\caption{\bf Experimental results of impervious surfaces maximum storage capacity, taken from Zhou et
+al. (2021).}
+ \label{fig:7.2}
+\end{figure}
+
+This maximum water storage strongly impacts the amount of evaporation, and this is
+important to be aware of (Wouters et al. 2015).
+We have established that impervious surfaces have limited water storage, and may be
+prone to drainage, however evaporation, and thus Q E , can still be a significant factor from these surfaces. In the next section, we introduce an urban heat mitigation
+technique that makes use of this: pavement watering.
+
+\subsubsection{Pavement Watering}\label{sec:appendix7.1.4_}
+
+Pavement watering describes the practise of wetting otherwise dry impervious surfaces,
+often roads and footpaths, on hot days. The subsequent evaporation from these wet
+surfaces induces a cooling effect, and thus has potential to mitigate urban heat. There is
+also a slight benefit associated with runoff transporting warmed water out of the system
+\citep{Hendel2020}. This technique can include engineered permeable surfaces
+designed to retain water; however, this is considered out of scope for this research. 
+
+The benefits of this strategy have been investigated through field and modelling
+experiments. The following sections will explore these two approaches.
+
+\paragraph{Field Experiments}\label{sec:appendix7.1.4.1}
+
+Pavement watering has been adopted in France, Japan, and Korea in response to excess
+urban heat.
+Since 2013, pavement watering has been conducted every summer in Paris when certain
+meteorological conditions, relating to the city's heat health warning thresholds (Pascal et
+al. 2006), are met (Table 7.1). Non-potable water is deposited with a cleaning truck at
+set intervals or via a removable water pipe which continuously supplies water. These events have been extensively studied to characterise the surface and subsurface
+pavement temperature changes \cite{Hendel2015,Hendel2015a,Hendel2015b,Hendel2014}, as well as to investigate the climate benefits (Parison et al. 2020, \cite{Hendel2016}.
+
+
+Table 7.1: Weather conditions for pavement watering used in Paris, corresponding to relaxed heatwave
+conditions, taken from \cite{Hendel2015a}.
+Parameter
+Mean 3-day minimum
+temperature (BMI Min )
+Mean 3-day maximum
+temperature (BMI Max )
+Wind speed
+Sky conditions
+air
+air
+Pavement watering
+conditions Heat-wave
+warning level
+>16$^{\circ}$C >21$^{\circ}$C
+>25$^{\circ}$C >31$^{\circ}$C
+<10 km.h -1 -
+Sunny (less than 2 oktas
+cloud cover) -
+
+In Japan, pavement watering is tied to a 17 th century Japanese custom, uchimizu, where
+water is sprinkled on streets outside houses and shops. Due to the cooling benefits, the
+practice is currently encouraged by Japanese authorities (Solcerova et al. 2018).
+Pavement watering has also been utilised at a larger scale, using existing snow-melting
+pipe networks to wet roads in the summer (Kinouchi et al. 1997, Himeno et al. 2010).
+In Korea, pavement watering is known as "Clean Road". Clean Road systems are
+installed along various roads in Korea, where water is discharged for a range of reasons,
+including to provide cooling in excessive heat and melt snow in winter (Na et al. 2021).
+For example, the Clean Road system in Daegu utilises underground water discharged from a subway station to water approximately 9.1 km of road two times per day in
+summer, and three times in case of extreme heat (Kim et al. 2015, Na et al. 2021).
+The measured benefits of pavement watering are summarised in Table 7.2. The
+maximum changes in air temperature and relative humidity range from 0$^{\circ}$C to -4$^{\circ}$C
+and 0 % to +4.08 % respectively. Thermal comfort benefits are of a higher magnitude
+than air temperature changes, as the former considers mean radiant temperature, and
+thus also accounts for reductions in surface temperature (Table 7.2).
+These maximum benefits are measured next to or on top of watered surfaces, where
+impacts are greatest. The extent of cooling was investigated by Takebayashi et al.
+(2021), who found that thermal comfort benefits reduce the greater the distance from the
+wetted surface and the smaller the reduction in surface temperature. For example, the
+reduction in Standard New Effective Temperature (SET*) decreased from 0.48$^{\circ}$C to
+0.24$^{\circ}$C 1 m away from the watered roadway, for a 7.4$^{\circ}$C reduction in surface
+temperature.
+These studies highlight that the advantage of pavement watering lies in its accessibility
+to highly urbanised areas and quick cooling response. One study also found a reduction
+of 5 % to 15 % of fine dust when comparing a watered road to a non-watered area,
+suggesting that pavement watering may reduce air pollution (Kim et al. 2014). On the
+other hand, pavement watering is constrained by localisation of cooling benefits, water availability, and required frequency of watering due to the limited water storage
+capacity of surfaces. Thus, optimising pavement watering to maximise water efficiency
+and cooling benefit is important.
+\cite{Hendel2020} summaries the general conditions to maximise pavement watering
+efficiency: the surface is fully exposed to sunlight and enough water is applied to
+prevent the surface drying while also minimising runoff and drainage, i.e., optimising
+for evaporation and thus Q E .
+The discussed experimental studies provide a basis for pavement watering; however, it
+is clear that results depend on the specific site locations and prevailing conditions.
+Indeed, \cite{Hendel2016} notes that a limitation of field studies is the assumption that
+control and experimental sites are comparable. Pre-existing differences and interactions
+between sites may cause errors in reported cooling effects, although there have been
+some attempts to overcome this issue with statistical analysis.
+
+
+
+
+Table 7.2: Observed maximum impacts of pavement watering field experiments. GT is Globe Temperature, UTCI is Universal Thermal Climate Index, and SET* is Standard
+New Effective Temperature.
+Study
+Kinouchi et al.
+(1997)
+Himeno et al.
+(2010)
+\cite{Hendel2016}
+Parison et al.
+(2020)
+Takebayashi et
+al. (2021)
+Measurement
+Height (m)
+1
+0.9
+1.5
+1.5
+1.2
+Air
+Temperature
+($^{\circ}$C) Humidity
+(%) Measure of
+Thermal Comfort
+($^{\circ}$C)
+Snow-melting pipes, watering road from 10:00 to 14:00 - 1 + 4 - 4 (GT)
+Snow-melting pipes, 12 L.min -1 on road for 3 min every 30 min
+Morning: 8:30 to 10:30 - 2 - -
+Afternoon: 17:10 to 19:10 - 4 - -
+Paris 2013-2014 summer field experiments
+Louvre site: cleaning truck and a manual operator for road and
+sidewalk ~1 mm every hour from 6:20 to 11:30 and every 30
+min from 14:00 to 20:30 - 0.79 + 4.1 - 1.03 (UTCI)
+Belleville site: 40 m watering pipe continuously watered
+pavement at 25 mm.h -1 from 7:00 to 21:00 - 0.60 + 1.6 -0.93 (UTCI)
+Paris annual summer field experiments, statistical analysis of
+Louvre site data
+2013 – 2015 campaign, watering road and sidewalk (100% of
+street width)
+2016-2018 campaign, watering road only (66% of street width) - 1.02 + 4.08 - 1.93 (UTCI)
+- 0.97 + 3.03 - 3.42 (UTCI)
+None** None** - 0.8 (SET*)
+- - - 2.5 (SET*)
+Details
+Sufficient water supplied to wet the surface
+Watering one road lane
+Watering pedestrian pavement
+**As only one of multiple lanes were watered, no change in air temperature and relative humidity was observed at 1.2 m, presumed to be due to air mixing
+\label{table:7.2}
+
+
+\paragraph{Modelling Experiments}\label{sec:appendix7.1.4}
+
+Models provide an alternative method to investigate pavement watering. They
+overcome the need for a comparable control and experimental site. Models also allow
+for more experimental control and are generally less demanding than observational measurements, although they rely on imperfect abstractions of the real world
+(Krayenhoff et al. 2021).
+One such experiment utilises the Town Energy Balance (TEB), a mesoscale urban
+canopy model, to simulate a 2100 heatwave in Paris (Daniel et al. 2018). Pavement
+watering was found to induce a cooling of up to 1$^{\circ}$C for air temperature at 2 m when
+simulated from 8am to 8pm, with 603 km 2 surfaces being wetted at 1.5 GL.day -1 .
+Broadbent et al. (2018) also investigated the cooling benefits of irrigation using TEB
+(embedded in SURFEX, a land surface modelling scheme), although watering was only
+simulated on pervious surfaces. Bare soil irrigation was found to have the greatest
+irrigation efficiency (in terms of cooling benefit per volume of water). For this reason,
+impervious surfaces can also be an effective cooling method in built-up areas.
+
+\subsubsection{Summary}\label{sec:appendix7.1.5}
+Excess heat in urban areas will be further exacerbated by climate change and increasing
+urbanisation. Impervious surfaces contribute to this heat, as they partition a large
+proportion of energy into the sensible heat flux while limiting the latent heat flux. The
+lack of evaporative cooling from these surfaces is due to the lack of water, which is
+driven by their limited water storage capacity. However, evaporation, and thus latent
+heat flux, can be favoured by adding water, and avoiding water loss to drainage and
+runoff, especially in conditions which optimise evaporation.
+
+Pavement watering is an urban heat mitigation technique that attempts to do this by
+watering impervious surfaces on hot days. Various field studies in France, Japan, and
+Korea have shown that the technique reduces air temperature and improves thermal
+comfort. However, pavement watering has yet to be explored in an Australian context.
+This literature review was done to inform a study on pavement watering in Melbourne,
+Australia.
+
+\subsubsection{Daily Weather Observations}\label{sec:appendix7.2}
+
+\begin{table}[!ht]\caption{The daily weather observations for Melbourne, Victoria for the experiment days in February
+2022, taken from the BOM (2022).}
+    \centering
+    \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|}
+    \hline
+        Date & Temp & Rain & 9am & 3pm & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ & ~ \\ \hline
+        Min & Max & Temp & RH & Cld & Wind Dir & Wind Spd & Temp & RH & Cld & Wind Dir & Wind Spd & ~ & ~ \\ \hline
+       $^{\circ}$C &$^{\circ}$C & mm &$^{\circ}$C & \% & oktas & km/h &$^{\circ}$C & \% & oktas & km/h & ~ & ~ & ~ \\ \hline
+        7th & 14.7 & 28.6 & 0 & 20.3 & 58 & 1 & NE & 7 & 27.2 & 40 & 1 & S & 13 \\ \hline
+        8th & 15.4 & 30.5 & 0 & 20 & 60 & 1 & NNE & 9 & 30 & 31 & 3 & NE & 6 \\ \hline
+        12th & 15.7 & 28.3 & 0 & 18.7 & 68 & 1 & ESE & 6 & 26.6 & 47 & 2 & SSW & 7 \\ \hline
+        13th & 17.1 & 32.1 & 0 & 23.5 & 50 & 4 & NNW & 20 & 30.3 & 34 & 7 & NNW & 20 \\ \hline
+    \end{tabular}\label{table:7.3}
+\end{table}
+
+Note: RH = relative humidity, Cld = fraction of sky obscured by cloud, Wind Dir = wind direction,
+Wind Spd = wind speed .
+B UREAU OF M ETEOROLOGY (BOM) 2022 Melbourne, Victoria February 2022 Daily Weather
+Observations.
+http://www.bom.gov.au/climate/dwo/202202/html/IDCJDW3050.202202.shtml
+
+
+
+
+
+\subsubsection{Sensor Validation and Corrections}\label{sec:appendix7.3}
+
+Figure 7.3 shows the validation period for T a and RH. T a was discarded in favour of
+T p,1.5 as both measured air temperature at 1.5 m, as there were clear issues with the
+control T a sensor. The mean difference between RH control and experimental sensors
+from this validation period was calculated (2.5 %) and used to correct the experiment
+data.
+
+\begin{figure}
+\centering
+\includegraphics[trim={0 0 0 0},clip,scale=1.0]{pict018.png}
+\caption{\bf The results from validation period (25 th to 28 th of Feb 2022) for the (a) T a and (b) RH sensors.}
+ \label{fig:7.3}
+\end{figure}
+
+Figure 7.4 shows the validation period for the Kestrels (K T and K RH ). K T was considered
+reasonable, while the mean difference between K RH sensors from this validation period
+was calculated (3.8 %) and applied to experiment data.
+
+\begin{figure}
+\centering
+\includegraphics[trim={0 0 0 0},clip,scale=1.0]{pict019.png}
+\caption{\bf The results from validation period (15 th to 17 th of Feb 2022) for the Kestrels (a) K T and (b)
+K RH sensors.}
+ \label{fig:7.4}
+\end{figure}
+
+Figure 7.5 shows the validation period for the T g , ↓K, ↑K, ↓L, and ↑L. The T g , ↓K, and
+↑K was considered reasonable, while ↓L and ↑L were not comparable.
+
+\begin{figure}
+\centering
+\includegraphics[trim={0 0 0 0},clip,scale=1.0]{pict020.png}
+\caption{\bf The results from validation period (15 th to 17 th of Feb 2022) for the (a) T g , (b) ↓K, (c) ↑K, (d)
+↓L, (e) ↑L, (f) ↓ L raw , (g) ↑ L raw , and (h) T CNR1,ext sensors.}
+ \label{fig:7.5}
+\end{figure}
+
+The CNR1 measures the exchange of thermal radiation between the sensor and the
+object being faced (L raw ), which is then used alongside the temperature of the CNR1
+(T CNR1 ) to calculate L as follows:
+L = L raw + σ ∙ (T CNR1 + 273.15) 4
+(Equation 7.3)
+where σ is the Stefan–Boltzmann constant (5.67 x 10 -8 W.m -2 .K -4 ) (Campbell Scientific
+2011).
+Type E thermocouples were attached to the bottom of the CNR1 sensors to measure its
+temperature (T CNR1,ext ) instead of the CNR1 internal temperature sensors (T CNR1,int ) due
+to limited inputs on the data loggers. It can be seen that the T CNR1,ext , not the ↓L raw ,↑L raw
+(Figure 7.5) was causing the difference between control and experimental L.
+Additional investigation found that the internal temperature of the control and
+experimental CNR1 do not vary significantly (Figure 7.6), and thus it is likely that one
+or both of the thermocouples were not placed appropriately and/or securely on the
+CNR1. Therefore, the assumption was made that the actual T CNR1 did not vary between
+the control and experimental sensors. Thus, ↓L and ↑L was corrected with calculations
+based on the same CNR1 temperature.
+The control T CNR1,ext was identified as the ‘correct’ temperature was based on deriving
+the surface temperature (T s,drvd ) (see Appendix 7.4.2).
+
+\begin{figure}
+\centering
+\includegraphics[trim={0 0 0 0},clip,scale=1.0]{pict022.png}
+\caption{\bf The results from validation period (28 th to 30 th of Mar 2022) for the T CNR1,int sensors.}
+ \label{fig:7.6}
+\end{figure}
+
+C AMPBELL S CIENTIFIC 2011 CNR1 Net Radiometer Instruction Manual.
+https://s.campbellsci.com/documents/au/manuals/cnr1.pdf
+
+
+\subsubsection{Derived Variables}\label{sec:appendix7.4}
+\paragraph{Wind Speed 10 m}\label{sec:appendix7.4.1}
+
+It should be noted that the wind profile of the atmospheric boundary layer is generally
+logarithmic, and thus is commonly approximated using the log wind profile equation
+(Bañuelos-Ruedas et al. 2010). However, this requires the surface roughness and
+atmospheric stability to be known. Thus, to avoid assumptions and uncertainties
+associated with these variables, and as wind was measured at two heights, the wind
+profile power law (also known as the Hellmann exponential law) was used. This is
+commonly used when information is limited, although it is less theoretically accurate
+(Bañuelos-Ruedas et al. 2010).
+The wind profile power law is defined as
+u 2 = u 1 ∙ ( )
+z 1
+(Equation 7.4)
+where u 1 and u 2 is wind speed (m.s -1 ) at height z 1 and z 2 (m) respectively, and α is the
+wind shear exponent (Manwell et al. 2010). Firstly, α was derived from measured wind
+speed at 0.3 m (K u ) and 2.25 m (u). The average of the control and experimental K u
+values was used as it is assumed that the wind speed was the same for the control and
+experimental sites, as they were within 10 m of each other. The average α was then used
+to calculate wind speed at 10 m (u 10 ). See Figure 7.7 for the daily measured and derived
+wind speeds.
+
+\begin{figure}
+\centering
+\includegraphics[trim={0 0 0 0},clip,scale=1.0]{pict024.png}
+\caption{\bf Wind speeds at different heights for the experiment days: (a) 8 th , (b) 12 th , (c) 13 th . The
+transparent lines are the raw data, while the solid lines are the 5-minute running average.}
+ \label{fig:7.7}
+\end{figure}
+
+%B AÑUELOS -R UEDAS F., A NGELES -C AMACHO C. & R IOS -M ARCUELLO S. 2010 Analysis and validation of the methodology used in the extrapolation of wind speed data at different heights, Renewable and Sustainable Energy Reviews, vol. 14, no. 8, pp. 2383-2391.
+%M ANWELL J. F., M C G OWAN J. G. & R OGERS A. L. 2010 Wind energy explained: theory, design and application. John Wiley & Sons.
+
+\paragraph{Surface Temperature}\label{sec:appendix7.4.2}
+
+Only the experimental station had a surface temperature sensor (T s ) (Figure 2.1), thus
+surface temperature was derived for the control and experimental station (T s,drvd ), the
+latter for verification and consistency. ↑L (W.m -2 ) and T s ($^{\circ}$C) are related to each other
+by the following equation
+↑ L = εσ(T s + 273.15) 4 + (1 − ε) ↓ L
+(Equation 7.5)
+where σ is the Stefan–Boltzmann constant (5.67 x 10 -8 W.m -2 .K -4 ) and ε is emissivity of
+the surface (-). The magnitude of ε is unknown, but for road surfaces is commonly
+above 0.85 (Oke et al. 2017). Assuming that the surface is a black body (i.e., ε = 1) and
+rewriting to solve for T s,drvd simplifies the equation to:
+T s,drvd
+↑ L 1/4
+= ( ) − 273.15
+σ
+(Equation 7.6)
+As ↑L was found to impacted by errors associated with T CNR1 (Appendix 7.3), ↑L was
+calculated using both the control and experimental T CNR1 (Equation 7.3) before being
+used to calculate T s,drvd ((Equation 7.6). Comparing the experimental T s,drvd with
+measured T s showed that the black body assumption is flawed (Figure 7.8). To
+overcome this, the terms ignored in (Equation 7.6 were indirectly accounted for by
+performing a linear regression between T s and T s,drvd and applying this calculated linear
+model for each experiment day.
+
+The results of the different methods to calculate experimental T s,drvd alongside measured
+T s are shown in Figure 7.8. It is clear that the T s,drvd computed with linear model using
+the ↑L calculated with the control T CNR1 replicates the measured T s well. This is also
+shown as this method had the best performing R 2 values, which were 0.98, 0.98, and
+0.96 for the 8 th , 12 th , and 13 th respectively. This implies that the control T CNR1 captured
+the ‘correct’ temperature of the CNR1 sensor, while the experimental T CNR1 sensor may
+have been in an incorrect position.
+
+
+\begin{figure}
+\centering
+\includegraphics[trim={0 0 0 0},clip,scale=1.0]{pict027.png}
+\caption{\bf Different methods to derive surface temperature (T s,drvd ) for the experimental site compared to
+measured (T s ) for the experiment days: (a) 8 th , (b) 12 th , (c) 13 th .}
+ \label{fig:7.8}
+\end{figure}
+
+T s,drvd was then calculated for the control station using the calculated linear model along
+with ↑L calculated with the control T CNR1 (Appendix 7.5.10). For consistency, T s,drvd was
+used for both the control and experimental surface temperature to interpret impacts of
+watering, rather than T s .
+
+O KE T. R., et al. 2017 Urban climates. Cambridge University Press.
+
+
+\paragraph{Vapour-Pressure Deficit}\label{sec:appendix7.4.3}
+
+Instead of RH, a more accurate way to express the driving force of water loss is vapour-
+pressure deficit (VPD). VPD (kPa) is defined as the difference between the saturated
+vapour pressure (e s , kPa) and the ambient vapour pressure (e a , kPa).
+The e s can be calculated as
+e s = a ∙ e
+bT p,1.5
+(
+)
+T p,1.5 +c
+(Equation 7.7)
+where a, b, and c are constants. As suggested by McMahon et al. (2013), constants
+defined by Allen et al. (1998) are used (a = 0.6108 kPa, b = 17.27, c = 237.3$^{\circ}$C).
+Relative humidity (RH, %) is the vapour pressure ratio, and thus VPD can be written as
+VPD = e s (1 −
+RH
+)
+100
+(Equation 7.8)
+T p,1.5 and RH from the control and experimental stations (Figure 2.1) were used to
+calculate VPD. As the T p,1.5 was not working for the majority of experiment 13M, VPD
+could not be calculated for this experiment, however, it can be assumed it was quite
+high given the other VPD values on the 13 th .
+
+A LLEN R. G., et al. 1998 Crop evapotranspiration-Guidelines for computing crop water
+requirements-FAO Irrigation and drainage paper 56, Fao, Rome, vol. 300, no. 9, p.
+D05109.
+M C M AHON T. A., et al. 2013 Estimating actual, potential, reference crop and pan evaporation
+using standard meteorological data: a pragmatic synthesis, Hydrology and Earth System
+Sciences, vol. 17, no. 4, pp. 1331-1363.
+
+\paragraph{Mean Radiant Temperature and the Universal Thermal Climate Index}\label{sec:appendix7.4.4}
+
+To calculate the mean radiant temperature (MRT, K), the pythermalcomfort python
+package was used (Tartarini and Schiavon 2020). This employs the formula specified by
+ISO 7726:1998 Standard. Firstly, the heat transfer coefficient (h) is calculated as the
+maximum value between natural and forced convection as follows:
+1.4 ∙ |tg − tdb|
+d
+h = max
+v 0.6
+6.3 ∙ 0.4
+{
+d
+0.25
+(Equation 7.9)
+where tg is global temperature (K), tdb is air temperature (K), v is the wind speed (m.s -
+1
+), and d is the diameter of the globe (m). MRT can then be calculated as follows,
+MRT = (tg
+4
+0.25
+tg − tdb
+)
++h∙
+ε ∙ 5.67 ∙ 10 −8
+(Equation 7.10)
+where ε is the emissivity of the globe.
+The library pythermalcomfort facilitated the conversion of units, thus T g , T p,1.5 , and u 10
+were used to calculate MRT. For the globe diameter and emissivity, Campbell Scientific BlackGlobe values of 0.152 m and 0.957 respectively were used (Campbell Scientific
+2015). MRT was also converted to$^{\circ}$C.
+The same python library was used to calculate the Universal Thermal Climate Index
+(UTCI,$^{\circ}$C), a mathematical model that assesses the outdoor thermal environment and
+provides an indicator for heat stress. The model requires T p,1.5 , MRT, u 10 (m.s -1 ), and RH
+(%).
+%C AMPBELL S CIENTIFIC 2011 CNR1 Net Radiometer Instruction Manual. https://s.campbellsci.com/documents/au/manuals/blackglobe.pdf
+%T ARTARINI F. & S CHIAVON S. 2020 pythermalcomfort: A Python package for thermal comfort research, SoftwareX, vol. 12, p. 100578.
+
+
+\paragraph{Surface Energy Balance}\label{sec:appendix7.4.5}
+
+Latent heat flux (Q E , W.m -2 ) was calculated as
+Q E = L v ∙ ρ w ∙
+V 1
+1 m
+∙ ∙
+A t 1000 mm
+(Equation 7.11)
+where L v is the latent heat of vaporisation (2.5 × 10 6 J.kg -1 ), ρ w is the density of water
+(1000 kg.m -3 ), V is the volume of water (L), A is the area watered (10 m × 10 m), t is
+the total time to evaporate (seconds), and the last term converts the units to W.m -2 . The t
+was taken as the time it took for the area under the experimental station to become dry
+after watering.
+
+The V was adjusted to take into account water accumulation on the edge of the watered
+plot and losses due to runoff, based on observations. The carpark was slightly sloped
+towards the edges, and despite efforts to contain water inside the established plot, there
+was significant build up along the west edge and varying amounts of runoff (Figure 2.1,
+Table 2.2). It was assumed that there was no drainage, as the surface did not appear to
+have any cracks and any infiltration was considered negligible. It was also assumed that
+the water storage capacity of the plot was 40 L when subtracted for runoff and edge
+build up, and thus V = 40 L was used to calculate Q E . For the experiments where 20 L
+was added after the initial watering at set intervals (13M and 13A), as this water was
+added to the east side of the plot and resulted in no observable extra runoff or build-up,
+40 L from the initial 60 L was added to the following 20 L (i.e., V = 100 L).
+To calculate sensible heat flux (Q H , W.m -2 ), the following formula was used:
+Q H = ρ a C p
+(T s − T a )
+r ah
+(Equation 7.12)
+where ρ a is the density of air (1.2041 kg.m -3 ), C p is the specific heat of air at constant
+pressure (1.005 × 10 3 kg.m -3 ), T s is the surface temperature ($^{\circ}$C), T a is the air
+temperature ($^{\circ}$C), and r ah is the aerodynamic resistance to heat transfer. r ah was
+calculated using an equation derived from the Monin-Obukhov Similarity Theory,
+where assuming neutral conditions, it can be written as:
+
+r ah =
+1
+Z−d
+Z−d
+)] [ln (
+)]
+[ln (
+2
+k u
+z 0m
+z 0h
+(Equation 7.13)
+where k is the von Karman constant (0.41), u is the wind speed (m.s -1 ) at reference
+height Z (m), and d is the zero-plane displacement (Liu et al. 2007).
+The roughness length for momentum transfer (z 0m ) and the roughness length for heat
+transfer (z 0h ) were set as 0.09 and e -9.4 respectively, based on results from an outdoor
+urban scale model made of concrete cubes (Kanda et al. 2007). T s,drvd , T p,0.05 , and u 10
+was used for the surface temperature, air temperature, and wind respectively. Air
+temperature at the lowest height (0.05 m) was chosen as it plausibly has the most
+interaction with surface temperature, and thus the most relevance for Q H .
+K ANDA M., et al. 2007 Roughness lengths for momentum and heat derived from outdoor urban
+scale models, Journal of Applied Meteorology and Climatology, vol. 46, no. 7, pp.
+1067-1079.
+L IU S., et al. 2007 Evaluating parameterizations of aerodynamic resistance to heat transfer using
+field measurements, Hydrology and earth system sciences, vol. 11, no. 2, pp. 769-783.
+
+\subsection{Supporting Results}\label{sec:appendix7.5}
+\subsubsection{Δ Temperature Profile Summary}\label{sec:appendix7.5.1}
+
+\begin{figure}
+\centering
+\includegraphics[trim={0 0 0 0},clip,scale=1.0]{pict038.png}
+\caption{\bf Boxplots of the raw ΔT p for dry and wet periods of each experiment at each T p height. Rows
+correspond to the experiment day; columns correspond to the experiment time category.}
+ \label{fig:7.9}
+\end{figure}
+
+\subsubsection{Temperature Profile Δ vs Control}\label{sec:appendix7.5.2}
+
+\begin{figure}
+\centering
+\includegraphics[trim={0 0 0 0},clip,scale=1.0]{pict039.png}
+\caption{\bf ΔT p and T p,con at each T p height, lines showing the linear relationship for each experiment.
+The black outline indicates if the linear relationship is statistically significant (p < 0.05).}
+ \label{fig:7.10}
+\end{figure}
+
+
+\subsubsection{Δ Temperature Profile Control Correction}\label{sec:appendix7.5.3}
+\begin{figure}
+\centering
+\includegraphics[trim={0 0 0 0},clip,scale=1.0]{pict040.png}
+\caption{\bf Boxplots of the ΔT p for dry and wet periods of each experiment at each T p height, corrected
+by detrending based on the linear relationship between ΔT p and T p,con (Figure 7.10). Rows correspond to
+the experiment day; columns correspond to the experiment time category.}
+ \label{fig:7.11}
+\end{figure}
+
+\subsubsection{Temperature Profile Δ vs Wind}\label{sec:appendix7.5.4}
+
+\begin{figure}
+\centering
+\includegraphics[trim={0 0 0 0},clip,scale=1.0]{pict041.png}
+\caption{\bfΔT p and u 10 at each T p height, lines showing the linear relationship for each experiment. The
+black outline indicates if the linear relationship is statistically significant (p < 0.05).}
+ \label{fig:7.12}
+\end{figure}
+
+
+\subsubsection{Δ Temperature Profile Wind Correction}\label{sec:appendix7.5.5}
+
+\begin{figure}
+\centering
+\includegraphics[trim={0 0 0 0},clip,scale=1.0]{pict042.png}
+\caption{\bf Boxplots of the ΔT p for dry and wet periods of each experiment at each T p height, corrected
+by detrending based on the linear relationship between ΔT p and u 10 (Figure 7.12). Rows correspond to
+the experiment day; columns correspond to the experiment time category.}
+ \label{fig:7.13}
+\end{figure}
+
+\subsubsection{Δ Temperature Profile Mean Adjustment}\label{sec:appendix7.5.6}
+
+\begin{figure}
+\centering
+\includegraphics[trim={0 0 0 0},clip,scale=1.0]{pict043.png}
+\caption{\bf ΔT p corrected based on the mean of before watering for each experiment. The transparent
+lines are the raw data, while the solid lines are the 5-minute running average. The dashed lines on (b)
+represented the mean of the wet period, where grey represents a statistically insignificant change (p >
+0.05). Rows correspond to the experiment day; columns correspond to the experiment time category.}
+ \label{fig:7.14}
+\end{figure}
+
+
+\subsubsection{Pavement Watering Impact on Kestrel Temperature}\label{sec:appendix7.5.7}
+
+\begin{table}[!ht]\caption{PW impact for K T for all experiments.}
+    \centering
+    \begin{tabular}{|l|l|}
+    \hline
+        Experiment & PWimpact for KT \\ \hline
+        08M & -0.45 \\ \hline
+        08A & +0.59 \\ \hline
+        08E & -0.10 \\ \hline
+        12M & -0.35 \\ \hline
+        12A & -0.27 \\ \hline
+        12E & -0.11 \\ \hline
+        13M & +0.61 \\ \hline
+        13A & -0.84 \\ \hline
+        13E & -0.18 \\ \hline
+    \end{tabular}\label{table:7.4}
+\end{table}
+
+
+\subsubsection{Surface Temperature Transects Summary}\label{sec:appendix7.5.8}
+
+\begin{figure}
+\centering
+\includegraphics[trim={0 0 0 0},clip,scale=1.0]{pict044.png}
+\caption{\bf The T s,trns of all experiments showing the evolution from before, during, and after the wet
+period (subplot rows) for control and experimental points along the transect (subplot columns). Rows
+correspond to the experiment day; columns correspond to the experiment time category.}
+ \label{fig:7.15}
+\end{figure}
+
+
+\subsubsection{Δ Surface Temperature Transects Adjusted}\label{sec:appendix7.5.9}
+
+\begin{figure}
+\centering
+\includegraphics[trim={0 0 0 0},clip,scale=1.0]{pict045.png}
+\caption{\bf The ΔT s,trns of all experiments where the wet refers to the mean ΔT s,trns of the wet period,
+adjusted so the before watering difference is zero. The black outline indicates that the experimental points
+are statistically significantly lower than the control points (p < 0.05).}
+ \label{fig:7.16}
+\end{figure}
+
+\subsubsection{Derived Surface Temperature}\label{sec:appendix7.5.10}
+
+\begin{figure}
+\centering
+\includegraphics[trim={0 0 0 0},clip,scale=1.0]{pict028.png}
+\caption{\bf T s,drvd for the control and experimental site with T s for the experiment days: (a) 8 th , (b) 12 th ,
+(c) 13 th .}
+ \label{fig:7.17}
+\end{figure}
+
+
+Table 7.5: ∆ dry and PW impact for T s,drvd for all experiments.
+Experiment
+08M
+08A
+08E
+12M
+12A
+12E
+13M
+13A
+13E
+∆ dry ($^{\circ}$C)
+-0.46
+-2.24
+-2.42
+-0.48
+-1.77
+-1.83
+-0.25
+-1.77
+-3.37
+PW impact ($^{\circ}$C)
+-4.38
+-5.10
+-2.14
+-3.25
+-3.77
+-2.49
+-6.84
+-5.53
+-2.24
+\label{table:7.5}
+
+
+
+
+\subsubsection{Surface Energy Balance Before Watering}\label{sec:appendix7.5.11}
+
+\begin{figure}
+\centering
+\includegraphics[trim={0 0 0 0},clip,scale=1.0]{pict046.png}
+\caption{\bf (a) The mean surface energy balance of each experiment’s control and experimental site
+before watering; (b) the Q H and Q* ratio for each experiment.}
+ \label{fig:7.18}
+\end{figure}
+
+
+\subsubsection{Change in Sensible Heat Flux and Net Radiation Ratio}\label{sec:appendix7.5.12}
+
+\begin{figure}
+\centering
+\includegraphics[trim={0 0 0 0},clip,scale=1.0]{pict047.png}
+\caption{\bf The ΔQ H /Q* for the before watering (dry) and during wet (wet) time periods, along with
+their difference, for all experiments.}
+ \label{fig:7.19}
+\end{figure}
+
+
+\section{Supplementary Figures}\label{sec:suppfig}
+\beginsupplement
+
+
+
+\end{document}
