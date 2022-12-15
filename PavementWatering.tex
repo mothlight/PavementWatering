@@ -488,6 +488,8 @@ However, further research is needed to provide additional evidence for the benef
 \newglossaryentry{p}{name=$p$,description={p-value}}
 \newglossaryentry{Qstar}{name=$Q^{*}$,description={Net Radiation ($Wm^{-2}$)}}
 \newglossaryentry{Qe}{name=$Q_{E}$,description={Latent Heat Flux ($Wm^{-2}$)}}
+\newglossaryentry{DeltaQa}{name=$\Delta Q_{A}$,description={Net energy advection ($Wm^{-2}$)}}
+\newglossaryentry{Qf}{name=$Q_{F}$,description={Anthropogenic Heat Flux ($Wm^{-2}$)}}
 \newglossaryentry{Qh}{name=$Q_{H}$,description={Sensible Heat Flux ($Wm^{-2}$)}}
 \newglossaryentry{QhQstar}{name=$Q_{H} / Q^{*}$,description={The Ratio of $Q_{H}$ to $Q^{*}$}}
 \newglossaryentry{deltaqs}{name=$\Delta Q_{S}$,description={Change in Heat Storage ($Wm^{-2}$)}}
@@ -520,21 +522,6 @@ points along the surface temperature transect}}
 
 
 
-%\newglossaryentry{utci}{name=$UTCI$,description={universal thermal climate index (\SI{}{\degreeCelsius})}}
-%\newglossaryentry{tsfc}{name=$T_{sfc}$,description={surface temperature (\SI{}{\degreeCelsius})}} 
-%\newglossaryentry{tcan}{name=$T_{can}$,description={canyon averaged air temperature (\SI{}{\degreeCelsius})}} 
-%\newglossaryentry{ta}{name=$T_{a}$,description={Air temperature (\SI{}{\degreeCelsius})}} 
-%\newglossaryentry{tmrt}{name=$T_{mrt}$,description={mean radiant temperature (\SI{}{\degreeCelsius})}} 
-%\newglossaryentry{lst}{name=$LST$,description={land surface temperature (\SI{}{\degreeCelsius})}}
-%\newglossaryentry{lcz}{name=LCZ,description={local climate zones}}
-%\newglossaryentry{htc}{name=HTC,description={human thermal comfort}}
-%\newglossaryentry{WUDAPT}{name=WUDAPT,description={World Urban Database and Access Portal Tools}}
-
-
-
-
-
-
  
  
 
@@ -553,62 +540,55 @@ KAN is supported by NHMRC/UKRI grant (1194959).
 \section{Appendix}\label{sec:appendix7}
 \subsection{Literature Review}\label{sec:appendix7.1}
 \subsubsection{Aims}\label{sec:appendix7.1.1}
-Urban areas face a growing threat of extreme heat; thus, we are interested in
-investigating methods to mitigate this heat. Pavement watering is one of these methods,
-where evaporative cooling is achieved through wetting impervious surfaces. This
-literature review aims to explore pavement watering. Firstly, urban climates will be
-briefly introduced, and the need to mitigate heat identified. Next, the general behaviour
-of water on impervious surfaces will be discussed, then existing studies on pavement
-watering will be examined.
+
+Urban areas face a growing threat of extreme heat; thus, we are interested in investigating methods to mitigate this heat. Pavement watering is one of these methods, where evaporative cooling is achieved through wetting impervious surfaces. This literature review aims to explore pavement watering. Firstly, urban climates will be briefly introduced, and the need to mitigate heat identified. Next, the general behaviour of water on impervious surfaces will be discussed, then existing studies on pavement watering will be examined.
 
 \subsubsection{Urban Climates}\label{sec:appendix7.1.2}
 Urban areas are highly developed regions, dominated by man-made structures that have
 replaced natural landscapes. These dense built-up areas have complex interactions with
 climate, many of which encourage warming. As a result, urban areas are significantly
 hotter than surrounding rural regions, a phenomenon known as the Urban Heat Island
-(UHI) effect.
-A key consequence of UHI is the intensification of heatwaves. Indeed, the heat stress
-from interactions between UHI and heatwave conditions were found to be greater than the sum of the two effects (Li and Bou-Zeid 2013). Higher heat-related mortality is
-associated with urban areas (Heidari et al. 2020), with one key influence being the
-night-time UHI preventing urban residents' relief from heatwave stresses (Clarke 1972).
+(\gls{uhi}) effect.
+
+A key consequence of \gls{uhi} is the intensification of heatwaves. Indeed, the heat stress
+from interactions between UHI and heatwave conditions were found to be greater than the sum of the two effects \citep{Li2013a}. Higher heat-related mortality is
+associated with urban areas \citep{Heidari2020}, with one key influence being the
+night-time UHI preventing urban residents' relief from heatwave stresses \citep{Clarke1972}.
+
 The vulnerability of urban areas is likely to be exacerbated with climate change and
 population growth. An increase in hot extremes has already been observed across
 almost all regions, and this trend is expected to continue with heatwaves projected to
-become more frequent and intense (IPCC 2021). Likewise, urbanisation is expected to
-increase, with the global population living in urban areas expected to grow from 55 % in
-2018 to 68 % by 2050 (United Nations 2019).
+become more frequent and intense \citep{IPCC2021}. Likewise, urbanisation is expected to
+increase, with the global population living in urban areas expected to grow from 55\% in
+2018 to 68\% by 2050 \citep{UN2019}.
+
 It is thus imperative that we investigate methods to mitigate urban heat. Pavement
 watering is a technique that takes advantage of the prevalence of impervious surfaces in
 urban areas. To explore pavement watering, it is first useful to consider the urban
 energy balance, a fundamental concept underlying urban climates.
 
 \subsubsection{Urban Energy Balance}\label{sec:appendix7.1.2.1}
+
 The energy balance is driven by the net all-wave radiation (\gls{Qstar}), i.e., the sum of
-incoming and outgoing shortwave (\gls{Kdown}, \gls{Kup}) and longwave radiation (\gls{Ldown}, \gls{Lup}). Urban areas also have additional sources of energy as a result of human activity (e.g., vehicles and air conditioners), which is accounted for as anthropogenic heat flux (Q F ).
-The net energy is partitioned into turbulent sensible heat flux (\gls{Qh}), turbulent latent heat flux (\gls{Qe}), and net heat storage (\gls{deltaqs}). Energy is also distributed via windborne transport, summarised as the net energy advection ($\Delta$Q A ). Thus, the urban energy
+incoming and outgoing shortwave (\gls{Kdown}, \gls{Kup}) and longwave radiation (\gls{Ldown}, \gls{Lup}). Urban areas also have additional sources of energy as a result of human activity (e.g., vehicles and air conditioners), which is accounted for as anthropogenic heat flux (\gls{Qf} ). The net energy is partitioned into turbulent sensible heat flux (\gls{Qh}), turbulent latent heat flux (\gls{Qe}), and net heat storage (\gls{deltaqs}). Energy is also distributed via windborne transport, summarised as the net energy advection (\gls{DeltaQa}). Thus, the urban energy
 balance can be summarised as (Oke 1988, Grimmond et al. 2010):
-\gls{Qstar} + Q F = \gls{Qh} + \gls{Qe} + \gls{deltaqs} + ∆Q A .
+
+\begin{equation}
+\gls{Qstar} + \gls{Qf} = \gls{Qh} + \gls{Qe} + \gls{deltaqs} + \gls{DeltaQa}
 (Equation 7.1)
-The distribution of turbulent heat transfer between \gls{Qh} and \gls{Qe} is dependent on water
-availability. While vegetated surfaces have the capacity to retain water and favour \gls{Qe},
-impervious surfaces only intermittently store small amounts of water, and when dry are
-an exclusive source of \gls{Qh} (Figure \ref{fig:7.1}). Urban areas are composed of both surface types,
-with a higher conversion of natural to constructed surfaces increasing the energy
-partitioned into \gls{Qh} (Oke et al. 2017). This reduction in \gls{Qe} relative to surrounding rural
-areas due to this ‘water-proofing' effect of impervious surfaces is a major contributing
-factor to UHI (Oke 1982).
+\label{eq:7.1} 
+\end{equation}
+
+The distribution of turbulent heat transfer between \gls{Qh} and \gls{Qe} is dependent on water availability. While vegetated surfaces have the capacity to retain water and favour \gls{Qe}, impervious surfaces only intermittently store small amounts of water, and when dry are an exclusive source of \gls{Qh} (Figure \ref{fig:7.1}). Urban areas are composed of both surface types, with a higher conversion of natural to constructed surfaces increasing the energy partitioned into \gls{Qh} (Oke et al. 2017). This reduction in \gls{Qe} relative to surrounding rural areas due to this `water-proofing' effect of impervious surfaces is a major contributing factor to UHI \citep{Oke19282}.
 
 \begin{figure}
 \centering
 \includegraphics[trim={0 0 0 0},clip,scale=1.0]{SEB.png}
-\caption{\bf Example surface energy balances of (a) dry asphalt road and (b) moist grass in an urban
-park (b), taken from Oke et al. (2017).}
+\caption{\bf Example surface energy balances of (a) dry asphalt road and (b) moist grass in an urban park (b), taken from \cite{Oke2017}.}
  \label{fig:7.1}
 \end{figure}
 
-Impervious surfaces also typically absorb large amounts of \gls{Qstar} during the day (Cohard
-et al. 2018). This accumulated $\Delta$QS is then released at night, which can support a
-positive night-time QH (Figure \ref{fig:7.1}) (Oke et al. 2017, Cohard et al. 2018).
+Impervious surfaces also typically absorb large amounts of \gls{Qstar} during the day (Cohard et al. 2018). This accumulated $\Delta$QS is then released at night, which can support a positive night-time QH (Figure \ref{fig:7.1}) (Oke et al. 2017, Cohard et al. 2018).
 Consequently, urban areas are prone to high night-time temperatures, which in turn, can
 led to negative health outcomes (Clarke 1972, Coutts et al. 2010).
 Water on impervious surfaces introduces QE into the energy balance and modifies the
@@ -962,7 +942,7 @@ or both of the thermocouples were not placed appropriately and/or securely on th
 CNR1. Therefore, the assumption was made that the actual \gls{tcnr1} did not vary between
 the control and experimental sensors. Thus, \gls{Ldown} and \gls{Lup} was corrected with calculations
 based on the same CNR1 temperature.
-The control \gls{tcnr1},ext was identified as the ‘correct' temperature was based on deriving
+The control \gls{tcnr1},ext was identified as the `correct' temperature was based on deriving
 the surface temperature (\gls{tsdrvd}) (see Appendix 7.4.2).
 
 \begin{figure}
@@ -1040,7 +1020,7 @@ The results of the different methods to calculate experimental \gls{tsdrvd} alon
 the \gls{Lup} calculated with the control \gls{tcnr1} replicates the measured \gls{ts} well. This is also
 shown as this method had the best performing \gls{r2} values, which were 0.98, 0.98, and
 0.96 for the 8 th , 12 th , and 13 th respectively. This implies that the control \gls{tcnr1} captured
-the ‘correct' temperature of the CNR1 sensor, while the experimental \gls{tcnr1} sensor may
+the `correct' temperature of the CNR1 sensor, while the experimental \gls{tcnr1} sensor may
 have been in an incorrect position.
 
 
@@ -1347,7 +1327,7 @@ Experiment
 -2.24
 \label{table:7.5}
 
-
+\clearpage
 
 
 \subsubsection{Surface Energy Balance Before Watering}\label{sec:appendix7.5.11}
@@ -1355,25 +1335,23 @@ Experiment
 \begin{figure}
 \centering
 \includegraphics[trim={0 0 0 0},clip,scale=1.0]{pict046.png}
-\caption{\bf (a) The mean surface energy balance of each experiment's control and experimental site
-before watering; (b) the \gls{Qh} and \gls{Qstar} ratio for each experiment.}
+\caption{\bf (a) The mean surface energy balance of each experiment's control and experimental site before watering; (b) the \gls{Qh} and \gls{Qstar} ratio for each experiment.}
  \label{fig:7.18}
 \end{figure}
-
+\clearpage
 
 \subsubsection{Change in Sensible Heat Flux and Net Radiation Ratio}\label{sec:appendix7.5.12}
 
 \begin{figure}
 \centering
 \includegraphics[trim={0 0 0 0},clip,scale=1.0]{pict047.png}
-\caption{\bf The $\Delta$\gls{Qh} /\gls{Qstar} for the before watering (dry) and during wet (wet) time periods, along with
-their difference, for all experiments.}
+\caption{\bf The $\Delta$\gls{Qh}/\gls{Qstar} for the before watering (dry) and during wet (wet) time periods, along with their difference, for all experiments.}
  \label{fig:7.19}
 \end{figure}
 
 
-\section{Supplementary Figures}\label{sec:suppfig}
-\beginsupplement
+%\section{Supplementary Figures}\label{sec:suppfig}
+%\beginsupplement
 
 
 
